@@ -1,2 +1,0 @@
-# Bachelorgruppe15
-EddystoneBLE

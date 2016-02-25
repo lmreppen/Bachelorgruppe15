@@ -17,3 +17,9 @@ body {
     top: 0px;
     left: 0px;
 }
+
+#infoTekst{
+	color: white;
+	background-color: #79ccf5;
+	padding: 100px;
+}

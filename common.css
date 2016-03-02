@@ -22,8 +22,10 @@ body {
 #infoTekst{
 	color: white;
 	background-color: #79ccf5;
-	padding: 100px;
-=======
-    height: 25%;
->>>>>>> gui-ingrid
+}
+
+.container{
+	padding-top: 3%;
+	padding-bottom: 3%;
+
 }

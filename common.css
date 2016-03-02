@@ -1,0 +1,29 @@
+body {
+    background-color: #eceff1;
+    font-family: 'Roboto', sans-serif;
+}
+
+#banner{
+	background-color: #79ccf5;
+	color: white;
+	font-family:'Roboto', sans-serif;;
+	text-align: center;
+	vertical-align: top;
+	padding: 70px;
+}
+
+#locationPin{
+	position: fixed;
+    top: 0px;
+    left: 0px;
+<<<<<<< HEAD
+}
+
+#infoTekst{
+	color: white;
+	background-color: #79ccf5;
+	padding: 100px;
+=======
+    height: 25%;
+>>>>>>> gui-ingrid
+}

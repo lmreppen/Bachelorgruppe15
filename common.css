@@ -13,10 +13,11 @@ body {
 }
 
 #mapmarker{
-	position: relative;
 	font-size: 70px;
-
+	position: fixed;
+	padding: 20px;
 }
+
 
 #infoTekst{
 	color: white;
@@ -51,8 +52,7 @@ body {
 	text-align: center;
 	border-style: white;
 	font-size: 10px;
-	padding: 7px;
-
+	width: 100%;
 }
 
 .lnr {

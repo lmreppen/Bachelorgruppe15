@@ -5,6 +5,7 @@
   <!-- defines the default zoom for mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
   <title>BusBuddy</title>
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="common.css"/> 
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -34,28 +35,104 @@
 <body>
 	 <header>
          <div id="banner" role="banner">
-            <div class="container">
+            <div class="container-fluid">
                <div class="row">
-                  <div class="col-xs-2"><img id="locationPin" src="location-pin.png" alt="locationPin" /></div>
-                  <div class="col-xs-10"><h1>Du er her</h1></div>
+                  <div class="col-xs-2"><span class="glyphicon glyphicon-map-marker" id="mapmarker"></span></div>
+                  <div class="col-xs-9"><h4>Du er her:</h4></div>
                </div>
+               <div class="row">
+               <div class="col-xs-12"><a href="#">Her er du</a></div>
             </div>
-         </div>
-         <table>
-            <tr id="infoTekst">
-            <th style="width:130px">Tid</th>
-            <th style="width:130px">Rute</th>
-            <th style="width:130px">Buss</th>
-         </tr>
-         </table>
-         <a href="#" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-search"></span> Search
-        </a>
-      </header>
+            </div>
+</header>
+          <div class="container" id="search">
+            <div class="row">
+              <div class="col-xs-1"></div>
+              <div class="col-xs-8"><form class="form-horizontal" role="search"> 
+              <input type="text" class="form-control" placeholder="Holdeplass">
+              </div>
+              <div class="col-xs-1">
+              <a href="#" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-search"></span> Søk</a></div>
+              <div class="col-xs-1"></div>
+            </div>
+          </div>
+
+          <div id="timetableHeader">
+            <div class="row" id="infoTekst">
+              <div class="col-xs-4">
+                <p>Tid</p>
+              </div>
+              <div class="col-xs-4">
+                <p>Rute</p>
+              </div>
+              <div class="col-xs-4">
+                <p>Buss</p>
+              </div>
+            </div>
+            </div>
+
+            <div class="container" id="timetable">
+              <div class="row">
+                <div class="col-xs-3"><p href="#">Ca nå</p>
+                </div>
+                <div class="col-xs-6"><p href="#"><img src="circle.png" alt="..." class="img-circle img-responsive"></p>
+                </div>
+                <div class="col-xs-3"><p href="#">Byen as</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4"><p href="#">2 min</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Buss nr</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Moholt</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4"><p href="#">5 min</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Buss nr</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Dragis</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4"><p href="#">12445 min</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Buss nr</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Gløs</p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="container form-horizontal" id="footer">
+              <div class="row">
+                <div class="col-xs-4"><span class="glyphicon glyphicon-time lnr"></span>
+                </div>
+                <div class="col-xs-4"><span class="lnr lnr-bus"></span>
+                </div>
+                <div class="col-xs-4"><span class="glyphicon glyphicon-search lnr"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4"><p href="#">Sanntid</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Min reise</p>
+                </div>
+                <div class="col-xs-4"><p href="#">Noe annet</p>
+                </div>
+              </div>
+            </div>
+
+    
 </body>
 <footer id="main-footer">
          <p>
-            Author's name. All rights reserved. Copyright &copy; 2012 - 2013.
+            Author's name. All rights reserved. Copyright &copy; 2012 - forever.
          </p>
       </footer>
    </body>

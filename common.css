@@ -9,21 +9,53 @@ body {
 	font-family:'Roboto', sans-serif;;
 	text-align: center;
 	vertical-align: top;
-	padding: 70px;
+	padding: 40px;
 }
 
-#locationPin{
+#mapmarker{
+	font-size: 70px;
 	position: fixed;
-    top: 0px;
-    left: 0px;
-<<<<<<< HEAD
+	padding: 20px;
 }
+
 
 #infoTekst{
 	color: white;
 	background-color: #79ccf5;
-	padding: 100px;
-=======
-    height: 25%;
->>>>>>> gui-ingrid
+	text-align: center;
+	font-size: 16px;
 }
+
+.container{
+	padding-top: 3%;
+	padding-bottom: 3%;
+
+}
+
+@media (max-width: 768px) {
+	.form-horizontal {
+		width: 100%;
+	}
+}
+
+#timetable {
+	text-align: center;
+}
+
+.img-circle{
+	max-height: 80px;
+}
+
+#footer {
+	color: white;
+	background-color: #79ccf5;
+	text-align: center;
+	border-style: white;
+	font-size: 10px;
+	width: 100%;
+}
+
+.lnr {
+	font-size: 30px;
+}
+

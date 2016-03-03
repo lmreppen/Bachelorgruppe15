@@ -3,6 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+header('Content-Type: application/json');
+
 class SoapClientHax extends SoapClient {
 
   private $variables;
@@ -50,9 +52,11 @@ $client = new SoapClientHax("http://st.atb.no/SMWS/SMService.svc?wsdl", array(
 $client->setVars($array);
 
 try {
-  print_r($client->GetStopMonitoring(''));
+  $data = $client->GetStopMonitoring('');
+  $data = $data['Answer'];
 }
 catch (Exception $e) {
-  print_r($e->getMessage());
+  $data = $e->getMessage();
 }
+echo json_encode($data);
 ?>

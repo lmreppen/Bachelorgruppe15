@@ -14,8 +14,14 @@ body {
 
 #mapmarker{
 	font-size: 70px;
-	position: fixed;
-	padding: 20px;
+	left: 150%;
+
+}
+
+@media (min-width: 500px) {
+	#mapmarker {
+		left: 250%;
+	}
 }
 
 

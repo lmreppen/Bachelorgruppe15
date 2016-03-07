@@ -15,6 +15,14 @@
 
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Paragraph changed.";
+    }
+
+    </script>
+
 </head>
 <body>
    <header>
@@ -45,6 +53,8 @@
             </div>
             </div>
 </header>
+
+
           <div class="container" id="search">
             <div class="row">
               <div class="col-xs-1"></div>
@@ -73,18 +83,28 @@
             </div>
 
             <div class="container" id="timetable">
+              <button type="button" onclick="myFunction()">Refresh</button>
+              <p id="demo">A Paragraph</p>
               <div class="row">
-                <div class="col-xs-3"><p href="#">Ca nå</p>
+                <div class="col-xs-2"><p href="#">Ca nå</p>
                 </div>
-                <div class="col-xs-6"><p href="#"><img src="circle.png" alt="..." class="img-circle img-responsive"></p>
+                <div class="col-xs-3"><canvas id="strek"></div>
+                <div class="col-xs-4"><p href="#">
+                  <canvas id="myCanvas">
+                  Your browser does not support the HTML5 canvas tag.</canvas>
+
                 </div>
-                <div class="col-xs-3"><p href="#">Byen as</p>
+                <div class="col-xs-3"><canvas id="strek"></div>
+                <div class="col-xs-2"><p href="#">Byen as</p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-4"><p href="#">2 min</p>
                 </div>
-                <div class="col-xs-4"><p href="#">Buss nr</p>
+                <div class="col-xs-4"><p href="#">
+                    <canvas id="myCanvas">
+                    Your browser does not support the HTML5 canvas tag.</canvas>
+                </p>
                 </div>
                 <div class="col-xs-4"><p href="#">Moholt</p>
                 </div>
@@ -128,7 +148,22 @@
               </div>
             </div>
 
-    
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(95,50,40,0,2*Math.PI);
+      ctx.stroke();
+    </script> 
+
+    <script>
+      var a = document.getElementById("strek");
+      var atx = a.getContext("2d");
+      atx.moveTo(50,50);
+      atx.lineTo(100,50);
+      atx.stroke();
+      </script>
+
 </body>
 <footer id="main-footer">
          <p>

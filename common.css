@@ -55,7 +55,7 @@ body {
 #footer {
 	position: fixed;
     bottom: 0px;
-    overflow: visible;
+    overflow: scroll;
     z-index: 99;
     padding-top: 5px;
     padding-bottom: 3px;

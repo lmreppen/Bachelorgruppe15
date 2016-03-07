@@ -46,28 +46,38 @@ body {
 
 #timetable {
 	text-align: center;
+	padding-top: 3%;
+	padding-bottom: 3%;
 }
 
 
 
 #footer {
+	position: fixed;
+    bottom: 0px;
+    width: 100%;
+    overflow: visible;
+    z-index: 99;
+    padding-top: 5px;
+    padding-bottom: 3px;
 	color: white;
 	background-color: #79ccf5;
 	text-align: center;
 	border-style: white;
 	font-size: 10px;
 	width: 100%;
+
 }
 
 .lnr {
 	font-size: 30px;
 }
 
-#strekH {
-	width: 100%;
-}
-
 #myCanvas {
 	text-align: center;
+}
+
+#main-footer {
+
 }
 

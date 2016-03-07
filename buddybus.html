@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <!-- defines the default zoom for mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>BusBuddy</title>
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="common.css"/> 
@@ -12,6 +13,7 @@
 
    <!-- Optional theme -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
 
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -82,47 +84,44 @@
             </div>
             </div>
 
-            <div class="container" id="timetable">
-              <button type="button" onclick="myFunction()">Refresh</button>
-              <p id="demo">A Paragraph</p>
+            <div class="container-fluid" id="timetable">
               <div class="row">
-                <div class="col-xs-2" id="box1"><p href="#">Ca nå</p>
+                <div class="col-xs-2 col-md-2" id="box1"><p href="#">Ca nå</p>
                 </div>
-                <div class="col-xs-3"><canvas id="strekV"></div>
-                <div class="col-xs-4"><p href="#">
+                <div class="col-xs-2 col-md-2"><canvas id="strekV"></canvas></div>
+                <div class="col-xs-4 col-md-4"><p href="#">
                   <canvas id="myCanvas">
                   Your browser does not support the HTML5 canvas tag.</canvas>
-
                 </div>
-                <div class="col-xs-3"><canvas id="strekH"></div>
-                <div class="col-xs-2"><p href="#">Byen as</p>
+                <div class="col-xs-2 col-md-2"><canvas id="strekH"></canvas></div>
+                <div class="col-xs-2 col-md-2"><p href="#">Byen as</p>
                 </div>
               </div>
               <div class="row">
-                <div class="col-xs-4"><p href="#">2 min</p>
+                <div class="col-xs-4 col-md-4"><p href="#">2 min</p>
                 </div>
-                <div class="col-xs-4"><p href="#">
+                <div class="col-xs-4 col-md-4"><p href="#">
                     <canvas id="myCanvas">
                     Your browser does not support the HTML5 canvas tag.</canvas>
                 </p>
                 </div>
-                <div class="col-xs-4"><p href="#">Moholt</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Moholt</p>
                 </div>
               </div>
               <div class="row">
-                <div class="col-xs-4"><p href="#">5 min</p>
+                <div class="col-xs-4 col-md-4"><p href="#">5 min</p>
                 </div>
-                <div class="col-xs-4"><p href="#">Buss nr</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Buss nr</p>
                 </div>
-                <div class="col-xs-4"><p href="#">Dragis</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Dragis</p>
                 </div>
               </div>
               <div class="row">
-                <div class="col-xs-4"><p href="#">12445 min</p>
+                <div class="col-xs-4 col-md-4"><p href="#">12445 min</p>
                 </div>
-                <div class="col-xs-4"><p href="#">Buss nr</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Buss nr</p>
                 </div>
-                <div class="col-xs-4"><p href="#">Gløs</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Gløs</p>
                 </div>
               </div>
             </div>
@@ -152,7 +151,7 @@
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       ctx.beginPath();
-      ctx.arc(95,50,40,0,2*Math.PI);
+      ctx.arc(55,50,40,0,2*Math.PI);
       ctx.strokeStyle = "#1fb6ff";
       ctx.lineWidth = 1;
       ctx.stroke();
@@ -162,7 +161,7 @@
       var v = document.getElementById("strekV");
       var vtx = v.getContext("2d");
       vtx.moveTo(0,50);
-      vtx.lineTo(100,50);
+      vtx.lineTo(20,50);
       vtx.strokeStyle = "#1fb6ff";
       vtx.lineWidth = 10;
       vtx.stroke();
@@ -171,7 +170,7 @@
       var h = document.getElementById("strekH");
       var htx = h.getContext("2d");
       htx.moveTo(0,50);
-      htx.lineTo(100,50);
+      htx.lineTo(20,50);
       htx.strokeStyle = "#1fb6ff";
       htx.lineWidth = 10;
       htx.stroke();

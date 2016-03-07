@@ -86,15 +86,15 @@
               <button type="button" onclick="myFunction()">Refresh</button>
               <p id="demo">A Paragraph</p>
               <div class="row">
-                <div class="col-xs-2"><p href="#">Ca nå</p>
+                <div class="col-xs-2" id="box1"><p href="#">Ca nå</p>
                 </div>
-                <div class="col-xs-3"><canvas id="strek"></div>
+                <div class="col-xs-3"><canvas id="strekV"></div>
                 <div class="col-xs-4"><p href="#">
                   <canvas id="myCanvas">
                   Your browser does not support the HTML5 canvas tag.</canvas>
 
                 </div>
-                <div class="col-xs-3"><canvas id="strek"></div>
+                <div class="col-xs-3"><canvas id="strekH"></div>
                 <div class="col-xs-2"><p href="#">Byen as</p>
                 </div>
               </div>
@@ -153,16 +153,30 @@
       var ctx = c.getContext("2d");
       ctx.beginPath();
       ctx.arc(95,50,40,0,2*Math.PI);
+      ctx.strokeStyle = "#1fb6ff";
+      ctx.lineWidth = 1;
       ctx.stroke();
-    </script> 
+      ctx.fillStyle = '#1fb6ff';
+      ctx.fill();
 
-    <script>
-      var a = document.getElementById("strek");
-      var atx = a.getContext("2d");
-      atx.moveTo(50,50);
-      atx.lineTo(100,50);
-      atx.stroke();
-      </script>
+      var v = document.getElementById("strekV");
+      var vtx = v.getContext("2d");
+      vtx.moveTo(0,50);
+      vtx.lineTo(100,50);
+      vtx.strokeStyle = "#1fb6ff";
+      vtx.lineWidth = 10;
+      vtx.stroke();
+      
+
+      var h = document.getElementById("strekH");
+      var htx = h.getContext("2d");
+      htx.moveTo(0,50);
+      htx.lineTo(100,50);
+      htx.strokeStyle = "#1fb6ff";
+      htx.lineWidth = 10;
+      htx.stroke();
+
+    </script>
 
 </body>
 <footer id="main-footer">

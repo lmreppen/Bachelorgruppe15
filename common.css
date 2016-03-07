@@ -48,9 +48,7 @@ body {
 	text-align: center;
 }
 
-.img-circle{
-	max-height: 80px;
-}
+
 
 #footer {
 	color: white;
@@ -63,5 +61,13 @@ body {
 
 .lnr {
 	font-size: 30px;
+}
+
+#strekH {
+	width: 100%;
+}
+
+#myCanvas {
+	text-align: center;
 }
 

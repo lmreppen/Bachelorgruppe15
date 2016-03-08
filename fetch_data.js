@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-
-<script>
-
-
 function fetchData() {
   var time = getCurrentTime();
   $.ajax({
     type: 'POST',
     url: 'test_realtime.php', 
-    data: {time:time,holdeplass:'16010476'},
+    data: {time:time,holdeplass:'16010404'},
     cache: false,
     success: function(json) {
       console.log(json);
@@ -21,6 +12,27 @@ function fetchData() {
       for (var i = 0; i < json['StopMonitoringDelivery']['MonitoredStopVisit'].length; i++) {
         console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName']);
         console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef']);
+
+        //Inneholder destinasjonsnavnet på bussen.
+        var destination = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName'];
+
+        //Nummeret på bussen
+        var lineNr = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef'];
+
+        //Forventet avgangstid fra valgt stopp
+        var arrivalTime = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedDepartureTime'];
+
+        //Statusen til bussen (Delayed / onTime)
+        try {
+        var status = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['MonitoredCall']['DepartureStatus'];
+      } catch(err){
+        var status = 'Ingen informasjon tilgjengelig';
+      }
+
+        document.write(destination + ' - Annkomst: '+ arrivalTime +' - Status: ' + status + '<BR/>');
+        document.write(lineNr + '<BR/>' + '<BR/>');
+
+
       }
     }
   });
@@ -66,20 +78,4 @@ function getCurrentTime(){
 
 }
 
-</script>
-
-
-
- <script type="text/javascript" src="fetch_data.js" ></script>
-
-
-
-</head>
-<body>
-
-
-
-
-
-</body>
-</html>
+window.onload = fetchData();

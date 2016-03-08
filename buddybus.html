@@ -19,9 +19,6 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script>
-    function myFunction() {
-        document.getElementById("demo").innerHTML = "Paragraph changed.";
-    }
 
     </script>
 
@@ -72,77 +69,83 @@
 
           <div id="timetableHeader">
             <div class="row" id="infoTekst">
-              <div class="col-xs-4">
-                <p>Tid</p>
-              </div>
-              <div class="col-xs-4">
-                <p>Rute</p>
-              </div>
-              <div class="col-xs-4">
+              <div class="col-xs-6">
                 <p>Buss</p>
+              </div>
+              <div class="col-xs-6">
+                <p>Tid til bussen ankommer</p>
               </div>
             </div>
             </div>
 
             <div class="container-fluid" id="timetable">
-              <div class="row">
-                <div class="col-xs-2 col-md-2" id="box1"><p href="#">Ca nå</p>
+              <div class="row" id="bussrad">
+                <div class="col-xs-1 col-md-4">
+                  </div>
+                <div class="col-xs-1 col-md-4"><h3 href="#">5</h3>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#" id="buss">Dragvoll</p>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#"></p>
+                  </div>
+                <div class="col-xs-4 col-md-4"><canvas id="myCanvas"></canvas><h4 href="#" id="min">2 min</h4>
+                  </div>
                 </div>
-                <div class="col-xs-2 col-md-2"><canvas id="strekV"></canvas></div>
-                <div class="col-xs-4 col-md-4"><p href="#">
-                  <canvas id="myCanvas">
-                  Your browser does not support the HTML5 canvas tag.</canvas>
+              <div class="row" id="bussrad">
+                <div class="col-xs-1 col-md-4">
+                  </div>
+                <div class="col-xs-1 col-md-4"><h3 href="#">5</h3>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#" id="buss">Dragvoll</p>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#"></p>
+                  </div>
+                <div class="col-xs-4 col-md-4"><h4 href="#" id="min">2 min</h4>
+                  </div>
                 </div>
-                <div class="col-xs-2 col-md-2"><canvas id="strekH"></canvas></div>
-                <div class="col-xs-2 col-md-2"><p href="#">Byen as</p>
+              <div class="row" id="bussrad">
+                <div class="col-xs-1 col-md-4">
+                  </div>
+                <div class="col-xs-1 col-md-4"><h3 href="#">5</h3>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#" id="buss">Dragvoll</p>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#"></p>
+                  </div>
+                <div class="col-xs-4 col-md-4"><h4 href="#" id="min">2 min</h4>
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-4 col-md-4"><p href="#">2 min</p>
+              <div class="row" id="bussrad">
+                <div class="col-xs-1 col-md-4">
+                  </div>
+                <div class="col-xs-1 col-md-4"><h3 href="#">5</h3>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#" id="buss">Dragvoll</p>
+                  </div>
+                <div class="col-xs-3 col-md-4"><p href="#"></p>
+                  </div>
+                <div class="col-xs-4 col-md-4"><h4 href="#" id="min">2 min</h4>
+                  </div>
                 </div>
-                <div class="col-xs-4 col-md-4"><p href="#">
-                    <canvas id="myCanvas">
-                    Your browser does not support the HTML5 canvas tag.</canvas>
-                </p>
-                </div>
-                <div class="col-xs-4 col-md-4"><p href="#">Moholt</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-4 col-md-4"><p href="#">5 min</p>
-                </div>
-                <div class="col-xs-4 col-md-4"><p href="#">Buss nr</p>
-                </div>
-                <div class="col-xs-4 col-md-4"><p href="#">Dragis</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-4 col-md-4"><p href="#">12445 min</p>
-                </div>
-                <div class="col-xs-4 col-md-4"><p href="#">Buss nr</p>
-                </div>
-                <div class="col-xs-4 col-md-4"><p href="#">Gløs</p>
-                </div>
-              </div>
             </div>
 
 
 
-            <div class="container form-horizontal" id="footer">
+            <div class="container" id="footer">
               <div class="row">
-                <div class="col-xs-4"><span class="glyphicon glyphicon-time lnr"></span>
+                <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-time lnr"></span>
                 </div>
-                <div class="col-xs-4"><span class="lnr lnr-bus"></span>
+                <div class="col-xs-4 col-md-4"><span class="lnr lnr-bus"></span>
                 </div>
-                <div class="col-xs-4"><span class="glyphicon glyphicon-search lnr"></span>
+                <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-search lnr"></span>
                 </div>
               </div>
               <div class="row">
-                <div class="col-xs-4"><p href="#">Sanntid</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Sanntid</p>
                 </div>
-                <div class="col-xs-4"><p href="#">Min reise</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Min reise</p>
                 </div>
-                <div class="col-xs-4"><p href="#">Noe annet</p>
+                <div class="col-xs-4 col-md-4"><p href="#">Noe annet</p>
                 </div>
               </div>
             </div>
@@ -151,12 +154,35 @@
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       ctx.beginPath();
-      ctx.arc(55,50,40,0,2*Math.PI);
+      ctx.arc(41,38,40,0,2*Math.PI);
       ctx.strokeStyle = "#1fb6ff";
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.fillStyle = '#1fb6ff';
       ctx.fill();
+
+      while (bus.length > 0) { 
+        var c3 = document.getElementById("myCanvas3");
+        var c3tx = c3.getContext("2d");
+        c3tx.beginPath();
+        c3tx.arc(55,40,30,0,2*Math.PI);
+        c3tx.strokeStyle = "#1fb6ff";
+        c3tx.lineWidth = 1;
+        c3tx.stroke();
+        c3tx.fillStyle = '#1fb6ff';
+        c3tx.fill();
+          }
+
+      var c2 = document.getElementById("myCanvas2");
+      var c2tx = c2.getContext("2d");
+      c2tx.beginPath();
+      c2tx.arc(55,40,30,0,2*Math.PI);
+      c2tx.strokeStyle = "#1fb6ff";
+      c2tx.lineWidth = 1;
+      c2tx.stroke();
+      c2tx.fillStyle = '#1fb6ff';
+      c2tx.fill();
+
 
       var v = document.getElementById("strekV");
       var vtx = v.getContext("2d");

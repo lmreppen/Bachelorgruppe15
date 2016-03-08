@@ -46,17 +46,30 @@ body {
 
 #timetable {
 	text-align: center;
-	padding-top: 3%;
-	padding-bottom: 3%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	position: relative;
 }
 
+#bussrad {
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
 
+#buss {
+	padding-top: 25px;
+	text-align: left;
+}
+
+#min {
+	padding-top: 15px;
+	text-align: left;
+	color: grey;
+	z-index: 100;
+  	position: absolute;
+}
 
 #footer {
-	position: fixed;
-    bottom: 0px;
-    overflow: scroll;
-    z-index: 99;
     padding-top: 5px;
     padding-bottom: 3px;
 	color: white;
@@ -64,7 +77,6 @@ body {
 	text-align: center;
 	border-style: white;
 	font-size: 10px;
-
 }
 
 .lnr {
@@ -72,7 +84,9 @@ body {
 }
 
 #myCanvas {
-	text-align: center;
+    position: absolute;
+	left: 0;
+	top: -60;
 }
 
 #main-footer {

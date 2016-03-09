@@ -42,11 +42,11 @@ body {
 
 }
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
 	.form-horizontal {
-
+		width: 100%;
 	}
-}
+}*/
 
 #timetable {
 	text-align: center;

@@ -53,7 +53,11 @@ body {
 	padding-top: 5%;
 	padding-bottom: 5%;
 	position: relative;
+	clip: auto;
+	overflow: hidden;
 }
+
+
 
 #bussrad {
 	padding-top: 15%;

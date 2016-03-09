@@ -3,6 +3,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+#kropp {
+	width: 100%;
+}
+
 #banner{
 	background-color: #79ccf5;
 	color: white;
@@ -14,8 +18,14 @@ body {
 
 #mapmarker{
 	font-size: 70px;
-	position: fixed;
-	padding: 20px;
+	left: 150%;
+
+}
+
+@media (min-width: 500px) {
+	#mapmarker {
+		left: 250%;
+	}
 }
 
 
@@ -32,30 +42,90 @@ body {
 
 }
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
 	.form-horizontal {
 		width: 100%;
 	}
-}
+}*/
 
 #timetable {
 	text-align: center;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	position: relative;
+	clip: auto;
+	overflow: hidden;
 }
 
-.img-circle{
-	max-height: 80px;
+
+
+#bussrad {
+	padding-top: 15%;
+	padding-bottom: 5%;
+}
+
+#buss {
+	padding-top: 25px;
+	text-align: left;
+}
+
+#min {
+	padding: 7%;
+	text-align: center;
+	color: white;
+	z-index: 100;
+  	position: absolute;
+}
+
+#closemin {
+	padding-bottom: 8%;
+	padding-left: 5%;
+	padding-top: -3%;
+	text-align: center;
+	color: white;
+	z-index: 100;
+  	position: absolute;
 }
 
 #footer {
+    padding-top: 5px;
+    padding-bottom: 3px;
 	color: white;
 	background-color: #79ccf5;
 	text-align: center;
 	border-style: white;
 	font-size: 10px;
-	width: 100%;
 }
 
 .lnr {
 	font-size: 30px;
+}
+
+#myCanvas {
+    position: absolute;
+	left: 0;
+	z-index: 99;
+}
+
+#myCanvas2 {
+    position: absolute;
+	left: 0;
+	z-index: 99;
+}
+
+#myCanvas3 {
+    position: absolute;
+	left: 0;
+	z-index: 99;
+}
+
+#myCanvas4 {
+    position: absolute;
+	left: 0;
+	z-index: 99;
+}
+
+#main-footer {
+
 }
 

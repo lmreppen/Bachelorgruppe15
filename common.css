@@ -52,7 +52,7 @@ body {
 }
 
 #bussrad {
-	padding-top: 5%;
+	padding-top: 15%;
 	padding-bottom: 5%;
 }
 
@@ -62,9 +62,19 @@ body {
 }
 
 #min {
-	padding-top: 15px;
-	text-align: left;
-	color: grey;
+	padding: 7%;
+	text-align: center;
+	color: white;
+	z-index: 100;
+  	position: absolute;
+}
+
+#closemin {
+	padding-bottom: 8%;
+	padding-left: 5%;
+	padding-top: -3%;
+	text-align: center;
+	color: white;
 	z-index: 100;
   	position: absolute;
 }
@@ -86,7 +96,25 @@ body {
 #myCanvas {
     position: absolute;
 	left: 0;
-	top: -60;
+	z-index: 99;
+}
+
+#myCanvas2 {
+    position: absolute;
+	left: 0;
+	z-index: 99;
+}
+
+#myCanvas3 {
+    position: absolute;
+	left: 0;
+	z-index: 99;
+}
+
+#myCanvas4 {
+    position: absolute;
+	left: 0;
+	z-index: 99;
 }
 
 #main-footer {

@@ -78,7 +78,7 @@
             </div>
             </div>
 
-            <div class="container-fluid" id="timetable">
+            <div class="container" id="timetable">
               <div class="row" id="bussrad">
                 <div class="col-xs-1 col-md-4">
                   </div>
@@ -88,7 +88,7 @@
                   </div>
                 <div class="col-xs-3 col-md-4"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-4"><canvas id="myCanvas"></canvas><h4 href="#" id="min">2 min</h4>
+                <div class="col-xs-4 col-md-4"><canvas id="myCanvas" width="500" height="500"></canvas><h3 href="#" id="closemin">2</br>min</h3>
                   </div>
                 </div>
               <div class="row" id="bussrad">
@@ -100,7 +100,7 @@
                   </div>
                 <div class="col-xs-3 col-md-4"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-4"><h4 href="#" id="min">2 min</h4>
+                <div class="col-xs-4 col-md-4"><canvas id="myCanvas2"></canvas><h4 href="#" id="min">2</br>min</h4>
                   </div>
                 </div>
               <div class="row" id="bussrad">
@@ -112,7 +112,7 @@
                   </div>
                 <div class="col-xs-3 col-md-4"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-4"><h4 href="#" id="min">2 min</h4>
+                <div class="col-xs-4 col-md-4"><canvas id="myCanvas3"></canvas><h4 href="#" id="min">2</br>min</h4>
                   </div>
                 </div>
               <div class="row" id="bussrad">
@@ -124,7 +124,7 @@
                   </div>
                 <div class="col-xs-3 col-md-4"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-4"><h4 href="#" id="min">2 min</h4>
+                <div class="col-xs-4 col-md-4"><canvas id="myCanvas4"></canvas><h4 href="#" id="min">2</br>min</h4>
                   </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       ctx.beginPath();
-      ctx.arc(41,38,40,0,2*Math.PI);
+      ctx.arc(42,45,42,0,2*Math.PI);
       ctx.strokeStyle = "#1fb6ff";
       ctx.lineWidth = 1;
       ctx.stroke();
@@ -172,18 +172,42 @@
         c3tx.fillStyle = '#1fb6ff';
         c3tx.fill();
           }
-
+      </script>
+      <script>
       var c2 = document.getElementById("myCanvas2");
       var c2tx = c2.getContext("2d");
       c2tx.beginPath();
-      c2tx.arc(55,40,30,0,2*Math.PI);
+      c2tx.arc(40,38,30,0,2*Math.PI);
       c2tx.strokeStyle = "#1fb6ff";
       c2tx.lineWidth = 1;
       c2tx.stroke();
       c2tx.fillStyle = '#1fb6ff';
       c2tx.fill();
+      </script>
+      <script>
+      var c3 = document.getElementById("myCanvas3");
+        var c3tx = c3.getContext("2d");
+        c3tx.beginPath();
+        c3tx.arc(40,38,30,0,2*Math.PI);
+        c3tx.strokeStyle = "#1fb6ff";
+        c3tx.lineWidth = 1;
+        c3tx.stroke();
+        c3tx.fillStyle = '#1fb6ff';
+        c3tx.fill();
+      </script>  
+      <script>
+      var c4 = document.getElementById("myCanvas4");
+        var c4tx = c4.getContext("2d");
+        c4tx.beginPath();
+        c4tx.arc(40,38,30,0,2*Math.PI);
+        c4tx.strokeStyle = "#1fb6ff";
+        c4tx.lineWidth = 1;
+        c4tx.stroke();
+        c4tx.fillStyle = '#1fb6ff';
+        c4tx.fill();
+      </script> 
 
-
+      <script>
       var v = document.getElementById("strekV");
       var vtx = v.getContext("2d");
       vtx.moveTo(0,50);
@@ -191,8 +215,8 @@
       vtx.strokeStyle = "#1fb6ff";
       vtx.lineWidth = 10;
       vtx.stroke();
-      
-
+      </script> 
+      <script>
       var h = document.getElementById("strekH");
       var htx = h.getContext("2d");
       htx.moveTo(0,50);

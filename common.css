@@ -3,6 +3,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+#kropp {
+	width: 100%;
+}
+
 #banner{
 	background-color: #79ccf5;
 	color: white;

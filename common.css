@@ -1,6 +1,7 @@
 body {
     background-color: #eceff1;
     font-family: 'Roboto', sans-serif;
+    height: 100%;
 }
 
 #kropp {
@@ -55,6 +56,8 @@ body {
 	position: relative;
 	clip: auto;
 	overflow: hidden;
+	height: 410px;
+	overflow-y: scroll;
 }
 
 
@@ -87,6 +90,7 @@ body {
   	position: absolute;
 }
 
+
 #footer {
     padding-top: 5px;
     padding-bottom: 3px;
@@ -95,6 +99,11 @@ body {
 	text-align: center;
 	border-style: white;
 	font-size: 10px;
+	position: fixed; /* This makes the footer "sticky" as you wanted */
+    bottom: 0; /* this is necessary because position: fixed; */
+    padding:0 20px;
+    width: 100%;
+    height: auto;
 }
 
 .lnr {

@@ -12,14 +12,18 @@ body {
 	background-color: #79ccf5;
 	color: white;
 	font-family:'Roboto', sans-serif;;
-	text-align: center;
-	vertical-align: top;
-	padding: 40px;
+	text-align: left;
+	padding: 10px;
+	font-size: 20px;
+}
+
+#herErDu {
+	font-size: 25px;
 }
 
 #mapmarker{
-	font-size: 70px;
-	left: 150%;
+	font-size: 30px;
+	left: 70%;
 
 }
 
@@ -35,11 +39,12 @@ body {
 	background-color: #79ccf5;
 	text-align: center;
 	font-size: 16px;
+
 }
 
 .container{
-	padding-top: 3%;
-	padding-bottom: 3%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 
 }
 
@@ -51,12 +56,12 @@ body {
 
 #timetable {
 	text-align: center;
-	padding-top: 5%;
-	padding-bottom: 5%;
+	padding-top: -2%;
+	padding-bottom: 2%;
 	position: relative;
 	clip: auto;
 	overflow: hidden;
-	height: 410px;
+	height: 400px;
 	overflow-y: scroll;
 }
 

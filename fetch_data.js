@@ -29,10 +29,11 @@ function fetchData() {
         var status = 'Ingen informasjon tilgjengelig';
       }
 
-        document.write(destination + ' - Annkomst: '+ arrivalTime +' - Status: ' + status + '<BR/>');
-        document.write(lineNr + '<BR/>' + '<BR/>');
-
-
+        //document.write(destination + ' - Annkomst: '+ arrivalTime +' - Status: ' + status + '<BR/>');
+        //document.write(lineNr + '<BR/>' + '<BR/>');
+        var lineRef = $(".lineRef").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['LineRef']);
+        var lineRef = $(".busName").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName']);
+        
       }
     }
   });
@@ -41,6 +42,7 @@ function fetchData() {
 $(document).ready(function() {
   fetchData();
   //setInterval(fetchData, 30000);
+  //writeToDoc();
 });
 
 function getCurrentTime(){
@@ -78,4 +80,10 @@ function getCurrentTime(){
 
 }
 
-window.onload = fetchData();
+function writeToDoc(){
+  var test = $(".lineRef").html("22");
+  console.log(buss1_lineRef.innerHTML);
+}
+
+//window.onload = fetchData();
+//window.onload = writeToDoc();

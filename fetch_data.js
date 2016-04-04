@@ -29,6 +29,7 @@ function fetchData() {
         var status = 'Ingen informasjon tilgjengelig';
       }
 
+
         //document.write(destination + ' - Annkomst: '+ arrivalTime +' - Status: ' + status + '<BR/>');
         //document.write(lineNr + '<BR/>' + '<BR/>');
         var lineRef = $(".lineRef").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['LineRef']);
@@ -79,6 +80,7 @@ function getCurrentTime(){
   return today;
 
 }
+
 
 function writeToDoc(){
   var test = $(".lineRef").html("22");

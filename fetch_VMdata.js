@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-<script>
-
-
 function fetchData() {
   var time = getCurrentTime();
   $.ajax({
     type: 'POST',
-    url: 'test_realtime.php', 
-    data: {time:time,holdeplass:'16010476'},
+    url: 'VehicleMonitoring.php', 
+    data: {time:time,bussID:'30'},
     cache: false,
     success: function(json) {
       console.log(json);
       //console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName'])
 
-      for (var i = 0; i < json['StopMonitoringDelivery']['MonitoredStopVisit'].length; i++) {
-        console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName']);
-        console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef']);
       }
-    }
-  });
+    });
 }
 
 $(document).ready(function() {
   fetchData();
   //setInterval(fetchData, 30000);
+  //writeToDoc();
 });
 
 function getCurrentTime(){
@@ -65,14 +54,11 @@ function getCurrentTime(){
 
 }
 
-</script>
 
+function writeToDoc(){
+  var test = $(".lineRef").html("22");
+  console.log(buss1_lineRef.innerHTML);
+}
 
-</head>
-<body>
-
-
-
-
-</body>
-</html>
+//window.onload = fetchData();
+//window.onload = writeToDoc();

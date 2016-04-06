@@ -3,10 +3,33 @@
 <head>
   <meta charset="UTF-8"/>
   <!-- defines the default zoom for mobile devices -->
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <link rel="stylesheet" href="common.css"/> 
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <title>BusBuddy</title>
-  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <!-- jQuery 1.12.0 -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+   <!-- Optional theme -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+
+   <!-- Latest compiled and minified JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+   <script type="text/javascript" src="fetch_data.js" ></script>
+
+     <header>
+  <meta charset="UTF-8"/>
+  <!-- defines the default zoom for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  
   <link rel="stylesheet" href="common.css"/> 
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -14,48 +37,24 @@
    <!-- Optional theme -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-
-   <!-- Latest compiled and minified JavaScript -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-    <script>
-
-    </script>
-
-
-</head>
-<body>
-   <header>
-	<meta charset="UTF-8"/>
-	<!-- defines the default zoom for mobile devices -->
-	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
-	<title>BusBuddy</title>
-	<link rel="stylesheet" href="common.css"/> 
-   <!-- Latest compiled and minified CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-   <!-- Optional theme -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
-<body>
 
+<body>
+<body>
 
 	 <header>
-    <div class="banner">
          <div id="banner" role="banner">
-            <div class="container">
+            <div class="container-fluid">
                <div class="row">
                   <div class="col-xs-2"><span class="glyphicon glyphicon-map-marker" id="mapmarker"></span></div>
-                  <div class="col-xs-5"><h4>Du er her:</h4></div>
-                  <div class="col-xs-5"><a href="#" id="herErDu">Her er du</a></div>
+                  <div class="col-xs-4"><h4>Du er her:</h4></div>
+                  <div class="col-xs-5"><a href="#" id="herErDu">Solsiden</a></div>
               </div>
             </div>
-            </div>
-  </header>
+</header>
+
 
           <div class="container wrapper" id="search">
             <div class="row">
@@ -66,7 +65,7 @@
               <div class="col-xs-1">
               <a href="#" class="btn btn-default btn-sm">
               <span class="glyphicon glyphicon-search"></span> Søk</a></div>
-              <div class="col-xs-2"></div>
+              <div class="col-xs-1"></div>
             </div>
           </div>
 
@@ -80,56 +79,55 @@
               </div>
             </div>
             </div>
-</div>
 
 
             <div class="container-fluid" id="timetable">
               <div class="row" id="bussrad">
                 <div class="col-xs-1 col-md-1">
                   </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
+                <div class="col-xs-1 col-md-2"><h3 href="#" class="0busNr"></h3>
                   </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
+                <div class="col-xs-3 col-md-3"><p href="#" id="buss" class="0busName"></p>
                   </div>
                 <div class="col-xs-3 col-md-3"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas" width="85" height="90"></canvas><h3 href="#" id="closemin">2</br>min</h3>
+                <div class="col-xs-4 col-md-3"><canvas id="myCanvas" width="85" height="90"></canvas><h3 href="#" id="closemin" class="0arrTime"></h3>
                   </div>
                 </div>
               <div class="row" id="bussrad">
                 <div class="col-xs-1 col-md-1">
                   </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
+                <div class="col-xs-1 col-md-2"><h3 href="#" class="1busNr"></h3>
                   </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
+                <div class="col-xs-3 col-md-3"><p href="#" id="buss" class="1busName"></p>
                   </div>
                 <div class="col-xs-3 col-md-3"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas2"></canvas><h4 href="#" id="min">2</br>min</h4>
+                <div class="col-xs-4 col-md-3"><canvas id="myCanvas2"></canvas><h4 href="#" id="min" class="1arrTime"></h4>
                   </div>
                 </div>
               <div class="row" id="bussrad">
                 <div class="col-xs-1 col-md-1">
                   </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
+                <div class="col-xs-1 col-md-2"><h3 href="#" class="2busNr"></h3>
                   </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
+                <div class="col-xs-3 col-md-3"><p href="#" id="buss" class="2busName"></p>
                   </div>
                 <div class="col-xs-3 col-md-3"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas3"></canvas><h4 href="#" id="min">2</br>min</h4>
+                <div class="col-xs-4 col-md-3"><canvas id="myCanvas3"></canvas><h4 href="#" id="min" class="2arrTime"></h4>
                   </div>
                 </div>
               <div class="row" id="bussrad">
                 <div class="col-xs-1 col-md-1">
                   </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
+                <div class="col-xs-1 col-md-2"><h3 href="#" class="3busNr"></h3>
                   </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
+                <div class="col-xs-3 col-md-3"><p href="#" id="buss" class="3busName"></p>
                   </div>
                 <div class="col-xs-3 col-md-3"><p href="#"></p>
                   </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas4"></canvas><h4 href="#" id="min">2</br>min</h4>
+                <div class="col-xs-4 col-md-3"><canvas id="myCanvas4"></canvas><h4 href="#" id="min" class="3arrTime"></h4>
                   </div>
                 </div>
             </div>

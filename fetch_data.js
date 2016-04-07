@@ -7,41 +7,14 @@ function fetchData() {
     cache: false,
     success: function(json) {
       console.log(json);
-      //console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName'])
-
-      for (var i = 0; i < json['StopMonitoringDelivery']['MonitoredStopVisit'].length; i++) {
-        console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName']);
-        console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef']);
-
-        //Inneholder destinasjonsnavnet på bussen.
-        var destination = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName'];
-
-        //Nummeret på bussen
-        var lineNr = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef'];
-
-        //Forventet avgangstid fra valgt stopp
-        var arrivalTime = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedDepartureTime'];
-
-        //Statusen til bussen (Delayed / onTime)
-        try {
-        var status = json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['MonitoredCall']['DepartureStatus'];
-      } catch(err){
-        var status = 'Ingen informasjon tilgjengelig';
-      }
-
-        //document.write(destination + ' - Annkomst: '+ arrivalTime +' - Status: ' + status + '<BR/>');
-        //document.write(lineNr + '<BR/>' + '<BR/>');
-        //var lineRef = $(".lineRef").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['LineRef']);
-        //var lineRef = $(".busName").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName']);
-        generateFromTemplate(json);
-      }
+      generateFromTemplate(json);
     }
   });
 }
 
 $(document).ready(function() {
   fetchData();
-  //setInterval(fetchData, 30000);
+  setInterval(fetchData, 30000);
   //writeToDoc();
 });
 
@@ -49,12 +22,19 @@ $(document).ready(function() {
 //Returns how many minute untill the bus will arrive
 function getArrivalMinutes(time){
 
+  //Some of the data returned will have undefined 'ExpectedDepartureTime'.
+  //If it is undefined, use the 'AimedDepartureTime' instead
+  try{
+   var busTime = String(time['ExpectedDepartureTime']);
+   var timeSDay = busTime.split("T");
+  }catch(e){
+    var busTime = String(time['AimedArrivalTime']);
+    var timeSDay = busTime.split("T");
+  }
   //getsCurrentTime
   var now = new Date();
-  var busTime = String(time);
+  
 
-  //splits the date to get the minutes of the day
-  var timeSDay = busTime.split("T");
   //splits the date to get the mintues and hours 
   var timeSTime = timeSDay[1].split(":");
 
@@ -78,7 +58,6 @@ function getArrivalMinutes(time){
   else{
   return timeTo + "</br>min";  
   }
-  
 }
 
 
@@ -90,7 +69,6 @@ function getCurrentTime(){
   var hours = today.getHours();
   var minutes = today.getMinutes();
   var seconds = today.getSeconds();
-
   if(dd<10) {
     dd='0'+dd
   } 
@@ -130,15 +108,17 @@ function generateFromTemplate(json){
 
   //Loop over all the busses, retrieve the relevant information and format it.
   for (var i = 0; i < json['StopMonitoringDelivery']['MonitoredStopVisit'].length; i++) {
-    busArray.push(
-    {
-      lineRef: json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef'],
-      busName: json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName'],
-      timeEst: '2 <br> min'
+  
+    if (json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['Monitored'] == true){
+      busArray.push(
+      {
+        lineRef: json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef'],
+        busName: json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName'],
+        timeEst: getArrivalMinutes(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['MonitoredCall'])
+      }
+        );
     }
-      );
   }
-
   //Finally, load the array into the template
   $(".simple-template-container").loadTemplate($("#template"), busArray);
 

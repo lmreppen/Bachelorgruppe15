@@ -8,6 +8,10 @@
   <title>BusBuddy</title>
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="common.css"/> 
+
+    <!-- jQuery 1.12.0 -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -18,29 +22,15 @@
    <!-- Latest compiled and minified JavaScript -->
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+   <!-- jQuery loadTemplate 1.44 -->
+   <script type="text/javascript" src="jquery.loadTemplate-1.4.4.js"></script>
 
-    <script>
-
-    </script>
+   <!-- Main js file -->
+   <script type="text/javascript" src="fetch_data.js" ></script>
 
 
 </head>
 <body>
-   <header>
-	<meta charset="UTF-8"/>
-	<!-- defines the default zoom for mobile devices -->
-	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
-	<title>BusBuddy</title>
-	<link rel="stylesheet" href="common.css"/> 
-   <!-- Latest compiled and minified CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-   <!-- Optional theme -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-   <!-- Latest compiled and minified JavaScript -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-</head>
 <body>
 
 	 <header>
@@ -81,54 +71,13 @@
 
 
             <div class="container-fluid" id="timetable">
-              <div class="row" id="bussrad">
-                <div class="col-xs-1 col-md-1">
-                  </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#"></p>
-                  </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas" width="85" height="90"></canvas><h3 href="#" id="closemin">2</br>min</h3>
-                  </div>
-                </div>
-              <div class="row" id="bussrad">
-                <div class="col-xs-1 col-md-1">
-                  </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#"></p>
-                  </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas2"></canvas><h4 href="#" id="min">2</br>min</h4>
-                  </div>
-                </div>
-              <div class="row" id="bussrad">
-                <div class="col-xs-1 col-md-1">
-                  </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#"></p>
-                  </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas3"></canvas><h4 href="#" id="min">2</br>min</h4>
-                  </div>
-                </div>
-              <div class="row" id="bussrad">
-                <div class="col-xs-1 col-md-1">
-                  </div>
-                <div class="col-xs-1 col-md-2"><h3 href="#">5</h3>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss">Dragvoll</p>
-                  </div>
-                <div class="col-xs-3 col-md-3"><p href="#"></p>
-                  </div>
-                <div class="col-xs-4 col-md-3"><canvas id="myCanvas4"></canvas><h4 href="#" id="min">2</br>min</h4>
-                  </div>
-                </div>
+
+              <div class="simple-template-container">
+                <!-- dynamically generated content from template is placed here -->
+
+              </div>
+
+             
             </div>
             </div>
 
@@ -229,6 +178,23 @@
       htx.stroke();
 
     </script>
+
+    <!-- Template -->
+<script type="text/html" id="template">
+   <div class="row" id="bussrad">
+                <div class="col-xs-1 col-md-1">
+                  </div>
+                <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
+                  </div>
+                <div class="col-xs-3 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>
+                  </div>
+                <div class="col-xs-3 col-md-3"><p href="#"></p>
+                  </div>
+                <div class="col-xs-4 col-md-3"><canvas class="myCanvas" width="85" height="90"></canvas><h3 href="#" id="closemin" data-content="timeEst"></h3>
+                  </div>
+                </div>
+</script>
+
 </body>
 <footer id="main-footer">
          <p>

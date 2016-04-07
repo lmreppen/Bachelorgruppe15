@@ -4,6 +4,10 @@ function fetchData() {
     type: 'POST',
     url: 'test_realtime.php', 
     data: {time:time,holdeplass:'16010404'},
+<<<<<<< HEAD
+=======
+    //var lineRef = $(".holdeplass")"Solsiden";
+>>>>>>> 9573f02f284aa581bbe4cbbd767d9aa6aa021052
     cache: false,
     success: function(json) {
       console.log(json);
@@ -29,12 +33,39 @@ function fetchData() {
         var status = 'Ingen informasjon tilgjengelig';
       }
 
+<<<<<<< HEAD
         //document.write(destination + ' - Annkomst: '+ arrivalTime +' - Status: ' + status + '<BR/>');
         //document.write(lineNr + '<BR/>' + '<BR/>');
         //var lineRef = $(".lineRef").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['LineRef']);
         //var lineRef = $(".busName").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName']);
         generateFromTemplate(json);
       }
+=======
+
+        //document.write(destination + ' - Annkomst: '+ arrivalTime +' - Status: ' + status + '<BR/>');
+        //document.write(lineNr + '<BR/>' + '<BR/>');
+        var lineRef = $(".lineRef").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['LineRef']);
+        var lineRef = $(".busName").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName']);
+        
+      }
+
+    //goes through all the bus stops and gives the class "xbusName" a value.   
+    for (p=0; p<json['StopMonitoringDelivery']['MonitoredStopVisit'].length; p++){
+     var lineRef = $("."+p+"busName").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][p]['MonitoredVehicleJourney']['DestinationName']);
+
+     //does the same for bus Numbers on the form xbusNr
+     var lineRef = $("."+p+"busNr").html(json['StopMonitoringDelivery']['MonitoredStopVisit'][p]['MonitoredVehicleJourney']['LineRef']);
+
+     //does the same for arrival time
+     var arrTime=getArrivalMinutes(json['StopMonitoringDelivery']['MonitoredStopVisit'][p]['MonitoredVehicleJourney']['MonitoredCall']['ExpectedDepartureTime']);
+     var lineRef = $("."+p+"arrTime").html(arrTime);
+
+     
+     }
+    //gives the class "rangeOfList" the value of the number of bus lists. Not sure if we need this, would be easier to just do it in the html file when we generate the menu. 
+    var lineRef = $(".rangeOfList").html(json['StopMonitoringDelivery']['MonitoredStopVisit'].length);
+    
+>>>>>>> 9573f02f284aa581bbe4cbbd767d9aa6aa021052
     }
   });
 }
@@ -45,6 +76,44 @@ $(document).ready(function() {
   //writeToDoc();
 });
 
+<<<<<<< HEAD
+=======
+//Returns how many minute untill the bus will arrive
+function getArrivalMinutes(time){
+
+  //getsCurrentTime
+  var now = new Date();
+  var busTime = String(time);
+
+  //splits the date to get the minutes of the day
+  var timeSDay = busTime.split("T");
+  //splits the date to get the mintues and hours 
+  var timeSTime = timeSDay[1].split(":");
+
+
+  var busHours= timeSTime[0];
+  var busMinutes=timeSTime[1];
+
+
+  var curHours= now.getHours();
+  var curMinutes=now.getMinutes();
+  
+  //subtracts the bus arrival with the current time to get hours untill departure 
+  var hoursTo = parseInt(busHours) - parseInt(curHours);
+  //subtracts the bus arrival minutes with the current minutes to get hours untill departure. 
+  var minutesTo = parseInt(busMinutes) - parseInt(curMinutes);
+
+  var timeTo = hoursTo*60 + minutesTo;
+  if(timeTo <= 0){
+    return "Nå";
+  }
+  else{
+  return timeTo + "</br>min";  
+  }
+  
+}
+
+>>>>>>> 9573f02f284aa581bbe4cbbd767d9aa6aa021052
 function getCurrentTime(){
   var today = new Date();
   var dd = today.getDate();
@@ -80,11 +149,16 @@ function getCurrentTime(){
 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9573f02f284aa581bbe4cbbd767d9aa6aa021052
 function writeToDoc(){
   var test = $(".lineRef").html("22");
   console.log(buss1_lineRef.innerHTML);
 }
 
+<<<<<<< HEAD
 function generateFromTemplate(json){
   //Create an array containing all the bus information formatted correctly
   var busArray = [];
@@ -132,3 +206,7 @@ function generateFromTemplate(json){
 
 //window.onload = fetchData();
 //window.onload = writeToDoc();
+=======
+//window.onload = fetchData();
+//window.onload = writeToDoc();
+>>>>>>> 9573f02f284aa581bbe4cbbd767d9aa6aa021052

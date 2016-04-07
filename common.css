@@ -8,22 +8,46 @@ body {
 	width: 100%;
 }
 
+.banner {
+	position: fixed;
+	white-space:nowrap;
+}
+
 #banner{
 	background-color: #79ccf5;
 	color: white;
 	font-family:'Roboto', sans-serif;;
 	text-align: left;
-	padding: 10px;
+	padding: 5px;
 	font-size: 20px;
+	display:inline-block;
+	white-space:nowrap;
+	width: 100%;
+}
+
+#search {
+	display:inline-block;
+	white-space:nowrap;
+	padding-top: 23%;
+}
+
+
+
+#timetable {
+
 }
 
 #herErDu {
 	font-size: 25px;
+	display:inline-block;
+	white-space:nowrap;
 }
 
 #mapmarker{
 	font-size: 30px;
 	left: 70%;
+	display:inline-block;
+	white-space:nowrap;
 
 }
 
@@ -32,7 +56,6 @@ body {
 		left: 250%;
 	}
 }
-
 
 #infoTekst{
 	color: white;
@@ -63,6 +86,7 @@ body {
 	overflow: hidden;
 	height: 400px;
 	overflow-y: scroll;
+	white-space:nowrap;
 }
 
 
@@ -106,9 +130,8 @@ body {
 	font-size: 10px;
 	position: fixed; /* This makes the footer "sticky" as you wanted */
     bottom: 0; /* this is necessary because position: fixed; */
-    padding:0 20px;
     width: 100%;
-    height: auto;
+
 }
 
 .lnr {

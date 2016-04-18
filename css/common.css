@@ -28,7 +28,7 @@ body {
 #search {
 	display:inline-block;
 	white-space:nowrap;
-	padding-top: 23%;
+	padding-top: 2%;
 }
 
 
@@ -76,6 +76,13 @@ body {
 		width: 100%;
 	}
 }*/
+
+@media (min-width: 677px) {
+	#timetable {
+			height: 370px;
+	}
+	}
+
 
 #timetable {
 	text-align: center;

@@ -29,7 +29,7 @@
    <script type="text/javascript" src="jquery.loadTemplate-1.4.4.js"></script>
 
    <!-- Main js file -->
-   <script type="text/javascript" src="fetch_VMdata.js" ></script>
+   <script type="text/javascript" src="fetch_data.js" ></script>
 
    <?php
 

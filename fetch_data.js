@@ -1,9 +1,11 @@
 function fetchData() {
   var time = getCurrentTime();
+  var id = document.getElementById("herErDu").textContent;
+  console.log(id);
   $.ajax({
     type: 'POST',
     url: 'test_realtime.php', 
-    data: {time:time,holdeplass:'16010404'},
+    data: {time:time,holdeplass:holdeplass},
     cache: false,
     success: function(json) {
       console.log(json);

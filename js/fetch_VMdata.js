@@ -2,14 +2,15 @@ function fetchData() {
   var time = getCurrentTime();
   $.ajax({
     type: 'POST',
-    url: 'test_realtime.php', 
-    data: {time:time,holdeplass:'16010404'},
+    url: 'VehicleMonitoring.php', 
+    data: {time:time,bussID:'30'},
     cache: false,
     success: function(json) {
       console.log(json);
-      generateFromTemplate(json);
-    }
-  });
+      //console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName'])
+
+      }
+    });
 }
 
 $(document).ready(function() {
@@ -148,7 +149,3 @@ function generateFromTemplate(json){
 
       
 }
-
-//window.onload = fetchData();
-//window.onload = writeToDoc();
-

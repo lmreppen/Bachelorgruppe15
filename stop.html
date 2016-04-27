@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <!-- defines the default zoom for mobile devices -->
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-  <link rel="stylesheet" href="css/common.css"/> 
+  <link rel="stylesheet" href="common.css"/> 
 
 
 
@@ -31,13 +31,13 @@
 
    <!-- Main js file -->
    <script type="text/javascript" src="fetch_data.js" ></script>
-
+   <script type="text/javascript" src="js/stop.js"></script>
 
 </head>
 
 <body>
 
-	 <header>
+   <header>
          <div id="banner" role="banner">
             <div class="container-fluid">
                <div class="row">
@@ -183,7 +183,7 @@
 <script type="text/html" id="template">
 <div class="container" id="sanntidBox">
    <div class="row" id="bussrad">
-                <div class="col-xs-2 col-md-1" id="stopButton"><a href=""><img src="stoppknapp.png" id="stopButton" height="30" width="45"></a>
+                <div class="col-xs-2 col-md-1" id="stopButton"><button type="button" class="btn btn-xs btn-default btn-danger" id="stopButton">STOPP</button>
                   </div>
                 <div class="col-xs-1 col-md-1"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
                   </div>

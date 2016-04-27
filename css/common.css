@@ -101,13 +101,14 @@ body {
 			height: 280px;
 	}
 	}
-*/
 
 @media (max-width: 480px) { 
 	#sanntidBox {
 		height: 200px;
 	}
  }
+
+ */
 
 #template {
 	position: center;
@@ -139,7 +140,7 @@ body {
 
 .closemin {
 	padding-bottom: 8%;
-	padding-left: 55%;
+	padding-left: 37%;
 	padding-top: 12%;
 	text-align: center;
 	color: white;
@@ -151,6 +152,18 @@ body {
 	padding-top: 5%;
 }
 
+#footer .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+
+#footer .row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
 
 #footer {
     padding-top: 5px;
@@ -164,7 +177,19 @@ body {
 	position: fixed; /* This makes the footer "sticky" as you wanted */
     bottom: 0; /* this is necessary because position: fixed; */
     width: 100%;
+}
 
+#footer a {
+	color: white;
+}
+
+
+#minReise_active {
+	background-color: #1fb6ff;
+}
+
+#sanntid_active {
+	background-color: #1fb6ff;
 }
 
 .lnr {
@@ -195,14 +220,13 @@ body {
 	z-index: 99;
 }
 
-#main-footer {
-
-}
-
-.lineRef {
-	
-}
-
-.busName {
-
-}
+.modal-dialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 99999;
+    opacity:0;

@@ -33,7 +33,8 @@
   <!-- Fetch data js file -->
   <script type="text/javascript" src="js/fetch_data.js" ></script>
 
-  
+  <!-- Fetch stop js file -->
+  <script type="text/javascript" src ="js/stop.js"></script>
 
 
   <?php
@@ -120,8 +121,8 @@
       <!-- Template -->
       <script type="text/html" id="template">
         <div class="row" id="bussrad">
-          <div class="col-xs-3 col-md-1"><a href=""><img src="img/stoppknapp.png" height="10" width="20"></a>
-          </div>
+          <div class="col-xs-2 col-md-1" id="stopButton"><button type="button" class="btn btn-xs btn-default btn-danger" id="stopButton">STOPP</button>
+                  </div>
           <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
           </div>
           <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>

@@ -33,6 +33,9 @@
   <!-- Fetch data js file -->
   <script type="text/javascript" src="js/fetch_data.js" ></script>
 
+  <!-- Fetch stop js file -->
+  <script type="text/javascript" src ="js/stop.js"></script>
+
 
   <?php
 
@@ -102,30 +105,24 @@
         </div>
       </div>
 
-      <div class="container footer" id="footer">
-        <div class="row">
-          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-time lnr"></span>
-          </div>
-          <div class="col-xs-4 col-md-4"><span class="lnr lnr-bus"></span>
-          </div>
-          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-search lnr"></span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-4 col-md-4"><p href="#">Sanntid</p>
-          </div>
-          <div class="col-xs-4 col-md-4"><p href="#">Min reise</p>
-          </div>
-          <div class="col-xs-4 col-md-4"><p href="#">Noe annet</p>
-          </div>
-        </div>
-      </div>
+         <div class="container footer" id="footer">
+              <div class="row">
+                <div class="col-xs-4 col-md-4" id="sanntid_active" height="100px"><a href="buddybus.html"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
+                </a>
+              </div>
+                <div class="col-xs-4 col-md-4" id="minReise"><a href="stop.html"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
+              </div>
+                <div class="col-xs-4 col-md-4" id="phWeb"><a href="buddybus.html"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
+                </a>
+              </div>
+              </div>
+            </div>
 
       <!-- Template -->
       <script type="text/html" id="template">
         <div class="row" id="bussrad">
-          <div class="col-xs-3 col-md-1"><a href=""><img src="img/stoppknapp.png" height="10" width="20"></a>
-          </div>
+          <div class="col-xs-2 col-md-1" id="stopButton"><button type="button" class="btn btn-xs btn-default btn-danger" id="stopButton">STOPP</button>
+                  </div>
           <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
           </div>
           <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>

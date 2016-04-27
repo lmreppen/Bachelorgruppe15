@@ -28,14 +28,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
   <!-- jQuery loadTemplate 1.44 -->
-  <script type="text/javascript" src="jquery.loadTemplate-1.4.4.js"></script>
+  <script type="text/javascript" src="js/jquery.loadTemplate-1.4.4.js"></script>
 
   <!-- Fetch data js file -->
   <script type="text/javascript" src="js/fetch_data.js" ></script>
 
+
   <?php
 
-  $con=mysqli_connect('mysql.stud.ntnu.no', 'larsmell_eddysto', 'oralstein','larsmell_holdeplasser');
+  $con=mysqli_connect('Localhost', 'root', 'ssfb1992','bluebus');
   mysqli_select_db("holdeplasser",$con);
 
   if (!$con) {
@@ -48,6 +49,8 @@
   $row = mysqli_fetch_array($result);
   ?>
   <script>
+
+
 
   var holdeplass = <?php echo json_encode($row["id"]); ?>
 

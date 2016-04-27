@@ -1,13 +1,14 @@
-window.onload = function(){
-document.querySelector('#stopButton').addEventListener('click', connect);
-          
- }
+
  
 const serviceUUID = '00001523-1212-efde-1523-785feabcd123';
-
+const ledCharacteristicUUID = '00001525-1212-efde-1523-785feabcd123';
 var bleDevice;
 var bleServer;
+var bleService;
 
+window.onload = function() {
+    document.querySelector('#stopButton').addEventListener('click', connect);
+}
 function connect() {
   if (!navigator.bluetooth) {
     
@@ -20,7 +21,12 @@ function connect() {
   })
   .then(server => {
     bleServer = server;
-    return server.getPrimaryService(serviceUUID);
+    return server.getPrimaryService(options);
   })
+  .then(service => {
+    
+    bleService = service;
+  }).catch(error => {
+   
+  });
 }
-  

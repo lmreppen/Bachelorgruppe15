@@ -4,8 +4,7 @@
   <meta charset="UTF-8"/>
   <!-- defines the default zoom for mobile devices -->
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-  <link rel="stylesheet" href="common.css"/> 
-
+  <link rel="stylesheet" href="css/common.css"/> 
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
@@ -48,6 +47,7 @@
             </div>
 </header>
 
+
           <div class="container wrapper" id="search">
             <div class="row">
               <div class="col-xs-1"></div>
@@ -87,20 +87,28 @@
             </div>
 
 
-<div class="container footer" id="footer">
+
+            <div class="container footer" id="footer">
               <div class="row">
-                <div class="col-xs-4 col-md-4" id="sanntid" height="100px"><a href="buddybus.html"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
+                <div class="col-xs-4 col-md-4"><a id="sanntidHoldeplass" onclick=""><span class="glyphicon glyphicon-time lnr"></span>
                 </a>
               </div>
-                <div class="col-xs-4 col-md-4" id="minReise_active"><a href="stop.html"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
-              </div>
-                <div class="col-xs-4 col-md-4" id="phWeb"><a href="buddybus.html"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
+                <div class="col-xs-4 col-md-4"><a id="minReise" onclick=""><span class="lnr lnr-bus"></span>
                 </a>
               </div>
+                <div class="col-xs-4 col-md-4"><a id="phWeb" onclick=""><span class="glyphicon glyphicon-search lnr"></span>
+                </a>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 col-md-4"><p href="#">Sanntid</p>
+                </div>
+                <div class="col-xs-4 col-md-4"><p href="#">Min reise</p>
+                </div>
+                <div class="col-xs-4 col-md-4"><p href="#">Noe annet</p>
+                </div>
               </div>
             </div>
-
-    <script type="text/javascript" src="javaBuddy.js"></script>
 
     <script>
       var c = document.getElementById("myCanvas");
@@ -181,22 +189,19 @@
 
     <!-- Template -->
 <script type="text/html" id="template">
-<div class="container" id="sanntidBox">
    <div class="row" id="bussrad">
-                <div class="col-xs-2 col-md-1" id="stopButton"><a href=""><img src="stoppknapp.png" id="stopButton" height="30" width="45"></a>
+                <div class="col-xs-2 col-md-1"><a href=""><img src="stoppknapp.png" height="20" width="35"></a>
                   </div>
-                <div class="col-xs-1 col-md-1"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
+                <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
                   </div>
-                <div class="col-xs-3 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>
+                <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>
                   </div>
-                <div class="col-xs-1 col-md-3"><p href="#"></p>
+                <div class="col-xs-3 col-md-3"><p href="#"></p>
                   </div>
                 <div class="col-xs-4 col-md-3"><canvas class="myCanvas" width="85" height="90"></canvas><h4 href="#" class="closemin" data-content="timeEst"></h4>
                   </div>
-                  </div>
                 </div>
 </script>
-
 
 </body>
 <footer id="main-footer">

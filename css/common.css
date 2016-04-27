@@ -31,12 +31,6 @@ body {
 	padding-top: 2%;
 }
 
-
-
-#timetable {
-
-}
-
 #herErDu {
 	font-size: 25px;
 	display:inline-block;
@@ -77,11 +71,6 @@ body {
 	}
 }*/
 
-@media (min-width: 677px) {
-	#timetable {
-			height: 370px;
-	}
-	}
 
 
 #timetable {
@@ -91,12 +80,39 @@ body {
 	position: relative;
 	clip: auto;
 	overflow: hidden;
-	height: 400px;
 	overflow-y: scroll;
 	white-space:nowrap;
 }
 
+/*@media (max-height: 731px;) {
+	#sanntidBox {
+			height: 400px;
+	}
+	}
 
+@media (max-height: 679px &&  min-height: 569px;) {
+	#sanntidBox {
+			max-height: 200px;
+	}
+	}
+
+@media (max-height: 568px;) {
+	#sanntidBox {
+			height: 280px;
+	}
+	}
+
+@media (max-width: 480px) { 
+	#sanntidBox {
+		height: 200px;
+	}
+ }
+
+ */
+
+#template {
+	position: center;
+}
 
 #bussrad {
 	padding-top: 15%;
@@ -124,14 +140,30 @@ body {
 
 .closemin {
 	padding-bottom: 8%;
-	padding-left: 5%;
-	padding-top: -3%;
+	padding-left: 37%;
+	padding-top: 12%;
 	text-align: center;
 	color: white;
 	z-index: 100;
   	position: absolute;
 }
 
+#stopButton{
+	padding-top: 5%;
+}
+
+#footer .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+
+#footer .row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
 
 #footer {
     padding-top: 5px;
@@ -141,10 +173,23 @@ body {
 	text-align: center;
 	border-style: white;
 	font-size: 10px;
+	z-index: 100;
 	position: fixed; /* This makes the footer "sticky" as you wanted */
     bottom: 0; /* this is necessary because position: fixed; */
     width: 100%;
+}
 
+#footer a {
+	color: white;
+}
+
+
+#minReise_active {
+	background-color: #1fb6ff;
+}
+
+#sanntid_active {
+	background-color: #1fb6ff;
 }
 
 .lnr {
@@ -153,7 +198,7 @@ body {
 
 .myCanvas {
     position: absolute;
-	left: 0;
+    left: 25px;
 	z-index: 99;
 }
 
@@ -175,14 +220,13 @@ body {
 	z-index: 99;
 }
 
-#main-footer {
-
-}
-
-.lineRef {
-	
-}
-
-.busName {
-
-}
+.modal-dialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 99999;
+    opacity:0;

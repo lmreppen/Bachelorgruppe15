@@ -1,12 +1,14 @@
-
- 
 const serviceUUID = '00001523-1212-efde-1523-785feabcd123';
 const ledCharacteristicUUID = '00001525-1212-efde-1523-785feabcd123';
+
 var bleDevice;
 var bleServer;
 var bleService;
 
-//document.querySelector('#btn').addEventListener('click', connect);
+
+window.onload = function() {
+    document.querySelector('#stopButton').addEventListener('click', connect);
+}
 function connect() {
   if (!navigator.bluetooth) {
     

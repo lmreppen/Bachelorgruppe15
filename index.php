@@ -143,7 +143,10 @@
       </p>
     </footer>
     <script>
-        document.querySelector('#stopButton').addEventListener('click', connect);
+        window.onload =function (){
+        document.getElementById('#stopButton').addEventListener('click', connect);    
+        }
+        
     </script>
   </body>
 </html>

@@ -18,8 +18,12 @@ $(document).ready(function() {
   fetchData();
   setInterval(fetchData, 30000);
   //writeToDoc();
-  document.querySelector('#stoppKnapp1').addEventListener('click', connect);
-  document.querySelector('#stoppKnapp').addEventListener('click', connect);
+  var button1 = document.getElementById('#stoppknapp');
+  var button2 = document.querySelector('#stoppKnapp');
+  var button3 = document.getElementsByClassName('btn btn-xs btn-default btn-danger');
+  button1.addEventListener('click', connect);
+  button2.addEventListener('click', connect);
+  button3.addEventListener('click', connect);
 });
 
 

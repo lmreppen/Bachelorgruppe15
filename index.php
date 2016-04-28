@@ -97,7 +97,7 @@
 
         <div class="container-fluid" id="timetable">
             <button type="button" id="stoppKnapp1" class="btn btn-xs btn-default btn-danger" >STOPP</button>
-            <button onclick="notifyMe()"> Notify me!</button>
+            <button onclick="notifyMe()" class="btn btn-xs btn-default btn-danger"> Notify</button>
 <script type="text/javascript">
   function notifyMe() {
   // Let's check if the browser supports notifications
@@ -121,18 +121,11 @@
     });
   }
 
-
-  // At last, if the user has denied notifications, and you 
-  // want to be respectful there is no need to bother them any more.
 }
 
 </script>
             
 
-        
-
-  // At last, if the user has denied notifications, and you 
-  // want to be respectful there is no need to bother them any more.
 }
 
 </script>

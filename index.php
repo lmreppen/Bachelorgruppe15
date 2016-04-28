@@ -33,8 +33,6 @@
   <!-- Fetch data js file -->
   <script type="text/javascript" src="js/fetch_data.js" ></script>
 
-  <!-- Fetch stop js file -->
-  <script type="text/javascript" src ="js/stop.js"></script>
 
 
   <?php

@@ -6,9 +6,7 @@ var bleDevice;
 var bleServer;
 var bleService;
 
-window.onload = function() {
-    document.querySelector('#stopButton').addEventListener('click', connect);
-}
+
 function connect() {
   if (!navigator.bluetooth) {
     

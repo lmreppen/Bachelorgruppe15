@@ -18,8 +18,7 @@ $(document).ready(function() {
   fetchData();
   setInterval(fetchData, 30000);
   //writeToDoc();
-  document.querySelector('#stoppKnapp1').addEventListener('click', connect);
-  document.querySelector('#stoppKnapp').addEventListener('click', connect);
+  document.querySelector('.stopKnapp').addEventListener('click', connect);
 });
 
 
@@ -124,8 +123,10 @@ function generateFromTemplate(json){
     }
   }
   //Finally, load the array into the template
+  //IMPORTANT: ANY ACTIONS DEALING WITH THE TEMPLATE MUST BE DONE AFTER THIS POINT, AND MUST BE INSIDE THIS FUNCTION!!
   $(".simple-template-container").loadTemplate($("#template"), busArray);
 
+  //Get all the canvases that was generated, and draw a circle.
   var c = document.getElementsByClassName("myCanvas");
   var ctx;
   for (var i = 0; i < c.length; i++) {
@@ -149,6 +150,9 @@ function generateFromTemplate(json){
       ctx.fill();
     }
   }
+
+  //Get all the stop buttons that was generated and put them into an array.
+  var stoppknapper = document.getElementsByClassName("btn btn-xs btn-default btn-danger");
 
 
 }

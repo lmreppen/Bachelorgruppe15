@@ -12,10 +12,6 @@
   <!-- Main JavaScript file -->
   <script src="js/script.js"></script>
 
-
-  <!-- Notification JavaScript file -->
-  <script src="js/notify.js"></script>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <title>BusBuddy</title>
 
@@ -36,7 +32,6 @@
 
   <!-- Fetch data js file -->
   <script type="text/javascript" src="js/fetch_data.js" ></script>
-
 
 
   <?php
@@ -100,43 +95,6 @@
         </div>
 
         <div class="container-fluid" id="timetable">
-            <button type="button" id="stoppKnapp1" class="btn btn-xs btn-default btn-danger" >STOPP</button>
-            <button onclick="notifyMe()" class="btn btn-xs btn-default btn-danger">Notify</button>
-
-          <script type="text/javascript">
-            function notifyMe() {
-            // Let's check if the browser supports notifications
-            if (!("Notification" in window)) {
-              alert("This browser does not support desktop notification");
-            }
-
-            // Let's check whether notification permissions have already been granted
-            else if (Notification.permission === "granted") {
-              // If it's okay let's create a notification
-              var notification = new Notification("Hi there!");
-            }
-
-            // Otherwise, we need to ask the user for permission
-            else if (Notification.permission !== 'denied') {
-              Notification.requestPermission(function (permission) {
-                // If the user accepts, let's create a notification
-                if (permission === "granted") {
-                  var notification = new Notification("Hi there!");
-                }
-              });
-            }
-
-          }
-
-          </script>
-            
-
-
-
-
-</script>
-
-
           <div class="simple-template-container">
             <!-- dynamically generated content from template is placed here -->
 
@@ -144,26 +102,30 @@
         </div>
       </div>
 
-         <div class="container footer" id="footer">
-              <div class="row">
-                <div class="col-xs-4 col-md-4" id="sanntid_active" height="100px"><a href="buddybus.html"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
-                </a>
-              </div>
-                <div class="col-xs-4 col-md-4" id="minReise"><a href="stop.html"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
-              </div>
-                <div class="col-xs-4 col-md-4" id="phWeb"><a href="buddybus.html"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
-                </a>
-              </div>
-              </div>
-            </div>
+      <div class="container footer" id="footer">
+        <div class="row">
+          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-time lnr"></span>
+          </div>
+          <div class="col-xs-4 col-md-4"><span class="lnr lnr-bus"></span>
+          </div>
+          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-search lnr"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-md-4"><p href="#">Sanntid</p>
+          </div>
+          <div class="col-xs-4 col-md-4"><p href="#">Min reise</p>
+          </div>
+          <div class="col-xs-4 col-md-4"><p href="#">Noe annet</p>
+          </div>
+        </div>
+      </div>
 
       <!-- Template -->
       <script type="text/html" id="template">
-      
-         <div class="row" id="bussrad">
-          <div class="col-xs-2 col-md-1" id="stopButton">
-              <button type="button" id="stoppKnapp" class="btn btn-xs btn-default btn-danger" >STOPP</button>
-                  </div>
+        <div class="row" id="bussrad">
+          <div class="col-xs-3 col-md-1"><a href=""><img src="img/stoppknapp.png" height="10" width="20"></a>
+          </div>
           <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
           </div>
           <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>
@@ -175,12 +137,20 @@
         </div>
       </script>
 
+<script>
+    var yqlCallback = function(data) {
+    var wind = data.query.results.channel.wind;
+    alert(wind.chill);
+  };
+</script>
+
+<script src="https://query.yahooapis.com/v1/public/yql?q=select wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=yqlCallback"></script>
+
     </body>
     <footer id="main-footer">
       <p>
         Bachelorgruppe 15. All rights reserved. Copyright &copy; 2016 - forever.
       </p>
     </footer>
-   
   </body>
 </html>

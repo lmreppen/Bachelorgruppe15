@@ -144,7 +144,7 @@
     </footer>
     <script>
         window.onload =function (){
-        document.getElementById('#stopButton').addEventListener('click', connect);    
+         document.querySelector('#stopButton').addEventListener('click', connect);    
         }
         
     </script>

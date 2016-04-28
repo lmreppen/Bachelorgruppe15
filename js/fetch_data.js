@@ -160,7 +160,7 @@ var bleService;
 
 window.onload = function() {
     document.querySelector('#stoppKnapp1').addEventListener('click', connect);
-    document.querySelector('#stoppKnapp1').addEventListener('click', connect);
+    document.querySelector('#stoppKnapp').addEventListener('click', connect);
 }
 function connect() {
   if (!navigator.bluetooth) {

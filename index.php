@@ -96,6 +96,8 @@
         </div>
 
         <div class="container-fluid" id="timetable">
+            <button type="button" id="stoppKnapp1" class="btn btn-xs btn-default btn-danger" >STOPP</button>
+            
           <div class="simple-template-container">
             <!-- dynamically generated content from template is placed here -->
 
@@ -121,7 +123,7 @@
       
         <div class="row" id="bussrad">
           <div class="col-xs-2 col-md-1" id="stopButton">
-              <button type="button" id="stopButton" class="btn btn-xs btn-default btn-danger" >STOPP</button>
+              <button type="button" id="stoppKnapp" class="btn btn-xs btn-default btn-danger" >STOPP</button>
                   </div>
           <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
           </div>

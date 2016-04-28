@@ -142,11 +142,6 @@
         Bachelorgruppe 15. All rights reserved. Copyright &copy; 2016 - forever.
       </p>
     </footer>
-    <script>
-        window.onload =function (){
-         document.querySelector('#stopButton').addEventListener('click', connect);    
-        }
-        
-    </script>
+   
   </body>
 </html>

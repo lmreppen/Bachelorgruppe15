@@ -18,7 +18,9 @@ $(document).ready(function() {
   fetchData();
   setInterval(fetchData, 30000);
   //writeToDoc();
+
   document.querySelector('.stopKnapp').addEventListener('click', connect);
+
 });
 
 

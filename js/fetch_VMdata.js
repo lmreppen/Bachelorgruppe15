@@ -1,21 +1,42 @@
-function fetchData() {
-  var time = getCurrentTime();
+function fetchVehicleData() {
+  var time = getCurrentTime(1);
   $.ajax({
     type: 'POST',
     url: 'VehicleMonitoring.php', 
-    data: {time:time,bussID:'30'},
+    data: {time:time,bussID:'20'},
     cache: false,
     success: function(json) {
       console.log(json);
       //console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName'])
-
+      //console.log(json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['LineRef'])
+      //var nextStop = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['MonitoredCall']['StopPointRef'];
+      getVehicleJourney(json);
       }
     });
 }
 
+//Returns a JSON object containing all the next stops and its passing time, from its current stop. 
+//Takes a json object as an argument (fetchVehicleData returns the json object containing the vehicles upcoming stop and lineRef)
+function getVehicleJourney(json){
+  var stopRef = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['MonitoredCall']['StopPointRef']; //An 8-digit code for the upcoming stop
+  var lineRef = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['LineRef']; //The number of the bus (E.G 8, 22, 5 etc)
+  var date = getCurrentTime(2); //Get the current date and timestamp formatted correctly
+  var url = 'getJourney.php?date='+date+'&code='+stopRef+'&num='+lineRef;
+  var upcomingStop = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['MonitoredCall']['StopPointName']
+  $.ajax({
+    type: 'POST',
+    url: url,
+    cache: false,
+    success: function(json) {
+      console.log(json);
+      generateFromTemplate(json, upcomingStop);
+    }
+  });
+}
+
 $(document).ready(function() {
-  fetchData();
-  setInterval(fetchData, 30000);
+    fetchVehicleData();
+   // setInterval(fetchData, 30000);
   //writeToDoc();
 });
 
@@ -62,7 +83,10 @@ function getArrivalMinutes(time){
 }
 
 
-function getCurrentTime(){
+//Returns the current time in one of two formats:
+//1 = YYYY-MM-DD T HH:MM:SS    for use in the soap request
+//2 = DD.MM.YYYY&Time=HH%3AMM  for use in the rp.atb.no url
+function getCurrentTime(option){
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth()+1; //January is 0!
@@ -90,36 +114,50 @@ function getCurrentTime(){
       mm='0'+mm
   } 
 
-  today = yyyy+'-'+mm+'-'+dd+'T'+hours+':'+minutes+':'+seconds;
-  String(today);
+  if (option == 1){
+    today = yyyy+'-'+mm+'-'+dd+'T'+hours+':'+minutes+':'+seconds;
+    String(today);
+  } else {
+    today = dd+'.'+mm+'.'+yyyy+'&Time='+hours+'%3A'+minutes;
+    String(today);
+  }
   return today;
-
+  
 }
 
 
-function writeToDoc(){
-  var test = $(".lineRef").html("22");
-  console.log(buss1_lineRef.innerHTML);
-}
 
 
-function generateFromTemplate(json){
+function generateFromTemplate(json, upcomingStop){
   //Create an array containing all the bus information formatted correctly
   var busArray = [];
 
-  //Loop over all the busses, retrieve the relevant information and format it.
-  for (var i = 0; i < json['StopMonitoringDelivery']['MonitoredStopVisit'].length; i++) {
-  
-    if (json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['Monitored'] == true){
+  console.log(upcomingStop);
+
+  //Init addStops as false
+  var addStops = false;
+
+  //Iterate over the json object
+  for (var i = 0; i < json.length; i++){
+
+    //If the current item in the json array is the next stop, set "addStops" to true, thus allowing all the next stops 
+    //in the list to be added. This is so we avoid adding stops the bus has already passed.
+    if(json[i]['holdeplass'] == upcomingStop || json[i]['holdeplass'] == upcomingStop + ' (Trondheim)') {
+      addStops = true;
+    }
+
+
+    if (addStops == true){    
       busArray.push(
       {
-        lineRef: json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['LineRef'],
-        busName: json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['DestinationName'],
-        timeEst: getArrivalMinutes(json['StopMonitoringDelivery']['MonitoredStopVisit'][i]['MonitoredVehicleJourney']['MonitoredCall'])
+        stopName: json[i]['holdeplass'],
+        timeEst: json[i]['tid']
       }
         );
-    }
+      }
   }
+
+
   //Finally, load the array into the template
   $(".simple-template-container").loadTemplate($("#template"), busArray);
 
@@ -147,5 +185,43 @@ function generateFromTemplate(json){
     }
   }
 
+  //Get all the stop buttons that was generated and put them into an array.
+  var stoppknapper = document.getElementsByClassName("btn btn-xs btn-default btn-danger");
       
 }
+
+const serviceUUID = '00001523-1212-efde-1523-785feabcd123';
+const ledCharacteristicUUID = '00001525-1212-efde-1523-785feabcd123';
+
+var bleDevice;
+var bleServer;
+var bleService;
+
+
+window.onload = function() {
+    document.querySelector('#stoppKnapp1').addEventListener('click', connect);
+    document.querySelector('#stoppKnapp').addEventListener('click', connect);
+}
+function connect() {
+  if (!navigator.bluetooth) {
+
+      return;
+  }
+  navigator.bluetooth.requestDevice({filters: [{services: [serviceUUID]}]})
+  .then(device => {
+    bleDevice = device;
+    return device.connectGATT();
+  })
+  .then(server => {
+    bleServer = server;
+    return server.getPrimaryService(options);
+  })
+  .then(service => {
+
+    bleService = service;
+  }).catch(error => {
+
+  });
+}
+
+

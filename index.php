@@ -40,8 +40,12 @@
 
 
   <?php
-
+  /*
   $con=mysqli_connect('Localhost', 'root', 'ssfb1992','bluebus');
+  mysqli_select_db("holdeplasser",$con);
+  */
+
+    $con=mysqli_connect('mysql.stud.ntnu.no', 'larsmell_eddysto', 'oralstein','larsmell_holdeplasser');
   mysqli_select_db("holdeplasser",$con);
 
   if (!$con) {
@@ -104,22 +108,8 @@
             <button onclick="notifyMe()" class="btn btn-xs btn-default btn-danger">Notify</button>
 
           <script type="text/javascript">
-
-
             function notifyMe() {
-
-            Notification.requestPermission().then(function(result) {
-            if (result === 'denied') {
-              console.log('Permission wasn\'t granted. Allow a retry.');
-              return;
-            }
-            if (result === 'default') {
-              console.log('The permission request was dismissed.');
-              return;
-            }
-            // Do something with the granted permission.
-            });
-                      // Let's check if the browser supports notifications
+            // Let's check if the browser supports notifications
             if (!("Notification" in window)) {
               alert("This browser does not support desktop notification");
             }
@@ -127,7 +117,7 @@
             // Let's check whether notification permissions have already been granted
             else if (Notification.permission === "granted") {
               // If it's okay let's create a notification
-              var notification = new Notification("Your bus is on the bus stop");
+              var notification = new Notification("Hi there!");
             }
 
             // Otherwise, we need to ask the user for permission
@@ -135,7 +125,7 @@
               Notification.requestPermission(function (permission) {
                 // If the user accepts, let's create a notification
                 if (permission === "granted") {
-                  var notification = new Notification("Your bus is on the bus stop");
+                  var notification = new Notification("Hi there!");
                 }
               });
             }
@@ -163,7 +153,7 @@
                 <div class="col-xs-4 col-md-4" id="sanntid_active" height="100px"><a href="buddybus.html"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
                 </a>
               </div>
-                <div class="col-xs-4 col-md-4" id="minReise"><a href="stop.html"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
+                <div class="col-xs-4 col-md-4" id="minReise"><a href="minreise.php"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
               </div>
                 <div class="col-xs-4 col-md-4" id="phWeb"><a href="buddybus.html"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
                 </a>
@@ -174,7 +164,7 @@
       <!-- Template -->
       <script type="text/html" id="template">
       
-         <div class="row" id="bussrad">
+        <div class="row" id="bussrad">
           <div class="col-xs-2 col-md-1" id="stopButton">
               <button type="button" id="stoppKnapp" class="btn btn-xs btn-default btn-danger" >STOPP</button>
                   </div>

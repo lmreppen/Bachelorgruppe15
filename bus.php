@@ -31,30 +31,15 @@
   <script type="text/javascript" src="js/jquery.loadTemplate-1.4.4.js"></script>
 
   <!-- Fetch data js file -->
-  <script type="text/javascript" src="js/fetch_data.js" ></script>
+  <script type="text/javascript" src="js/fetch_VMdata.js" ></script>
 
-
-  <?php
-
-  $con=mysqli_connect('Localhost', 'root', 'ssfb1992','bluebus');
-  mysqli_select_db("holdeplasser",$con);
-
-  if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
-
-  $id = $_GET['id'];
-  $sql = "SELECT * FROM holdeplasser where id= $id";
-  $result = mysqli_query($con, $sql);
-  $row = mysqli_fetch_array($result);
-  ?>
-  <script>
+  <!-- Jquery url parser -->
+  <script type="text/javascript" src="js/purl.js"></script>
 
 
 
-  var holdeplass = <?php echo json_encode($row["id"]); ?>
 
-  </script>
+
 
 </head>
 
@@ -65,7 +50,7 @@
         <div class="row">
           <div class="col-xs-2"><span class="glyphicon glyphicon-map-marker" id="mapmarker"></span></div>
           <div class="col-xs-4"><h4>Du er her:</h4></div>
-          <div class="col-xs-5"><a href="#" id="herErDu"><?php echo utf8_encode($row["navn"]); ?></a></div>
+          <div class="col-xs-5"><a href="#" id="herErDu">PUTT NAVN PÅ BUSSEN HER</a></div>
         </div>
       </div>
     </header>
@@ -123,12 +108,14 @@
 
       <!-- Template -->
       <script type="text/html" id="template">
+      
         <div class="row" id="bussrad">
-          <div class="col-xs-3 col-md-1"><a href=""><img src="img/stoppknapp.png" height="10" width="20"></a>
-          </div>
+          <div class="col-xs-2 col-md-1" id="stopButton">
+              <button type="button" id="stoppKnapp" class="btn btn-xs btn-default btn-danger" >STOPP</button>
+                  </div>
           <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
           </div>
-          <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>
+          <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="stopName"></p>
           </div>
           <div class="col-xs-3 col-md-3"><p href="#"></p>
           </div>
@@ -137,14 +124,7 @@
         </div>
       </script>
 
-<script>
-    var yqlCallback = function(data) {
-    var wind = data.query.results.channel.wind;
-    alert(wind.chill);
-  };
-</script>
 
-<script src="https://query.yahooapis.com/v1/public/yql?q=select wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=yqlCallback"></script>
 
     </body>
     <footer id="main-footer">

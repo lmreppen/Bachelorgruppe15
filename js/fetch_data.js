@@ -9,7 +9,7 @@ function fetchData() {
     cache: false,
     success: function(json) {
       console.log(json);
-      generateFromTemplate(json);
+      generateFromTemplate(json); //Uses the template declared in the index.php / bus.php to dynamically generate content.
     }
   });
 }
@@ -18,9 +18,7 @@ $(document).ready(function() {
   fetchData();
   setInterval(fetchData, 30000);
   //writeToDoc();
-
   document.querySelector('.stopKnapp').addEventListener('click', connect);
-
 });
 
 
@@ -105,6 +103,7 @@ function writeToDoc(){
   var test = $(".lineRef").html("22");
   console.log(buss1_lineRef.innerHTML);
 }
+
 
 
 function generateFromTemplate(json){

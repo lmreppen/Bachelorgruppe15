@@ -1,9 +1,10 @@
 function fetchVehicleData() {
   var time = getCurrentTime(1);
+  var id = document.getElementById("herErDu").textContent;
   $.ajax({
     type: 'POST',
     url: 'VehicleMonitoring.php', 
-    data: {time:time,bussID:'20'},
+    data: {time:time,bussID:busID},
     cache: false,
     success: function(json) {
       console.log(json);
@@ -20,6 +21,7 @@ function fetchVehicleData() {
 function getVehicleJourney(json){
   var stopRef = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['MonitoredCall']['StopPointRef']; //An 8-digit code for the upcoming stop
   var lineRef = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['LineRef']; //The number of the bus (E.G 8, 22, 5 etc)
+  var DestinationName = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['DestinationName'];
   var date = getCurrentTime(2); //Get the current date and timestamp formatted correctly
   var url = 'getJourney.php?date='+date+'&code='+stopRef+'&num='+lineRef;
   var upcomingStop = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['MonitoredCall']['StopPointName']
@@ -29,7 +31,7 @@ function getVehicleJourney(json){
     cache: false,
     success: function(json) {
       console.log(json);
-      generateFromTemplate(json, upcomingStop);
+      generateFromTemplate(json, upcomingStop, (lineRef + ' - ' + DestinationName));
     }
   });
 }
@@ -128,7 +130,7 @@ function getCurrentTime(option){
 
 
 
-function generateFromTemplate(json, upcomingStop){
+function generateFromTemplate(json, upcomingStop, busName){
   //Create an array containing all the bus information formatted correctly
   var busArray = [];
 
@@ -142,7 +144,7 @@ function generateFromTemplate(json, upcomingStop){
 
     //If the current item in the json array is the next stop, set "addStops" to true, thus allowing all the next stops 
     //in the list to be added. This is so we avoid adding stops the bus has already passed.
-    if(json[i]['holdeplass'] == upcomingStop || json[i]['holdeplass'] == upcomingStop + ' (Trondheim)') {
+    if(json[i]['holdeplass'] == upcomingStop || json[i]['holdeplass'] == upcomingStop + ' (Trondheim)' || json[i]['holdeplass'] == upcomingStop + ' (K) (Trondheim)') {
       addStops = true;
     }
 
@@ -187,6 +189,9 @@ function generateFromTemplate(json, upcomingStop){
 
   //Get all the stop buttons that was generated and put them into an array.
   var stoppknapper = document.getElementsByClassName("btn btn-xs btn-default btn-danger");
+
+  document.getElementById("herErDu").innerHTML = busName;
+
       
 }
 

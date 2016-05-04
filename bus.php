@@ -37,7 +37,13 @@
   <script type="text/javascript" src="js/purl.js"></script>
 
 
+  <?php
+  $id = $_GET['id'];
+  ?>
 
+  <script>
+  var busID = <?php echo json_encode($id); ?>
+  </script>
 
 
 
@@ -50,7 +56,7 @@
         <div class="row">
           <div class="col-xs-2"><span class="glyphicon glyphicon-map-marker" id="mapmarker"></span></div>
           <div class="col-xs-4"><h4>Du er her:</h4></div>
-          <div class="col-xs-5"><a href="#" id="herErDu">PUTT NAVN PÅ BUSSEN HER</a></div>
+          <div class="col-xs-5"><a href="#" id="herErDu"></a></div>
         </div>
       </div>
     </header>

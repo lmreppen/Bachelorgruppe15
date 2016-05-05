@@ -6,12 +6,23 @@ var bleServer;
 var bleService;
 
 
+
 window.onload = function() {
     document.querySelector('#stoppKnapp1').addEventListener('click', connect);
     document.querySelector('#stoppKnapp').addEventListener('click', connect);
 }
 function connect() {
   if (!navigator.bluetooth) {
+
+
+window.onload = function() {
+    document.querySelector('#stoppKnapp1').addEventListener('click', connect);
+    document.querySelector('#stoppKnapp').addEventListener('click', connect);
+
+}
+function connect() {
+  if (!navigator.bluetooth) {
+    
 
       return;
   }
@@ -26,8 +37,15 @@ function connect() {
   })
   .then(service => {
 
+
     bleService = service;
   }).catch(error => {
+
+
+    
+    bleService = service;
+  }).catch(error => {
+   
 
   });
 }

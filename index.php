@@ -36,6 +36,7 @@
 
   <!-- Fetch data js file -->
   <script type="text/javascript" src="js/fetch_data.js" ></script>
+  <script type="text/javascript" src ="js/stop.js"> </script>
 
 
 

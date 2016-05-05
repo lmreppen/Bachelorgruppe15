@@ -158,6 +158,5 @@ function generateFromTemplate(json){
 
 }
 
-
 //window.onload = fetchData();
 //window.onload = writeToDoc();

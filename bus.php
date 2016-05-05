@@ -12,10 +12,6 @@
   <!-- Main JavaScript file -->
   <script src="js/script.js"></script>
 
-
-  <!-- Notification JavaScript file -->
-  <script src="js/notify.js"></script>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <title>BusBuddy</title>
 
@@ -35,35 +31,21 @@
   <script type="text/javascript" src="js/jquery.loadTemplate-1.4.4.js"></script>
 
   <!-- Fetch data js file -->
-  <script type="text/javascript" src="js/fetch_data.js" ></script>
+  <script type="text/javascript" src="js/fetch_VMdata.js" ></script>
 
+  <!-- Jquery url parser -->
+  <script type="text/javascript" src="js/purl.js"></script>
 
 
   <?php
-  /*
-  $con=mysqli_connect('Localhost', 'root', 'ssfb1992','bluebus');
-  mysqli_select_db("holdeplasser",$con);
-  */
-
-    $con=mysqli_connect('mysql.stud.ntnu.no', 'larsmell_eddysto', 'oralstein','larsmell_holdeplasser');
-  mysqli_select_db("holdeplasser",$con);
-
-  if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
-
   $id = $_GET['id'];
-  $sql = "SELECT * FROM holdeplasser where id= $id";
-  $result = mysqli_query($con, $sql);
-  $row = mysqli_fetch_array($result);
   ?>
+
   <script>
-
-
-
-  var holdeplass = <?php echo json_encode($row["id"]); ?>
-
+  var busID = <?php echo json_encode($id); ?>
   </script>
+
+
 
 </head>
 
@@ -74,7 +56,7 @@
         <div class="row">
           <div class="col-xs-2"><span class="glyphicon glyphicon-map-marker" id="mapmarker"></span></div>
           <div class="col-xs-4"><h4>Du er her:</h4></div>
-          <div class="col-xs-5"><a href="#" id="herErDu"><?php echo utf8_encode($row["navn"]); ?></a></div>
+          <div class="col-xs-5"><a href="#" id="herErDu"></a></div>
         </div>
       </div>
     </header>
@@ -104,43 +86,6 @@
         </div>
 
         <div class="container-fluid" id="timetable">
-            <button type="button" id="stoppKnapp1" class="btn btn-xs btn-default btn-danger" >STOPP</button>
-            <button onclick="notifyMe()" class="btn btn-xs btn-default btn-danger">Notify</button>
-
-          <script type="text/javascript">
-            function notifyMe() {
-            // Let's check if the browser supports notifications
-            if (!("Notification" in window)) {
-              alert("This browser does not support desktop notification");
-            }
-
-            // Let's check whether notification permissions have already been granted
-            else if (Notification.permission === "granted") {
-              // If it's okay let's create a notification
-              var notification = new Notification("Hi there!");
-            }
-
-            // Otherwise, we need to ask the user for permission
-            else if (Notification.permission !== 'denied') {
-              Notification.requestPermission(function (permission) {
-                // If the user accepts, let's create a notification
-                if (permission === "granted") {
-                  var notification = new Notification("Hi there!");
-                }
-              });
-            }
-
-          }
-
-          </script>
-            
-
-
-
-
-</script>
-
-
           <div class="simple-template-container">
             <!-- dynamically generated content from template is placed here -->
 
@@ -148,18 +93,24 @@
         </div>
       </div>
 
-         <div class="container footer" id="footer">
-              <div class="row">
-                <div class="col-xs-4 col-md-4" id="sanntid_active" height="100px"><a href="buddybus.html"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
-                </a>
-              </div>
-                <div class="col-xs-4 col-md-4" id="minReise"><a href="minreise.php"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
-              </div>
-                <div class="col-xs-4 col-md-4" id="phWeb"><a href="buddybus.html"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
-                </a>
-              </div>
-              </div>
-            </div>
+      <div class="container footer" id="footer">
+        <div class="row">
+          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-time lnr"></span>
+          </div>
+          <div class="col-xs-4 col-md-4"><span class="lnr lnr-bus"></span>
+          </div>
+          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-search lnr"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-md-4"><p href="#">Sanntid</p>
+          </div>
+          <div class="col-xs-4 col-md-4"><p href="#">Min reise</p>
+          </div>
+          <div class="col-xs-4 col-md-4"><p href="#">Noe annet</p>
+          </div>
+        </div>
+      </div>
 
       <!-- Template -->
       <script type="text/html" id="template">
@@ -170,7 +121,7 @@
                   </div>
           <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
           </div>
-          <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="busName"></p>
+          <div class="col-xs-1 col-md-3"><p href="#" id="buss" class="busName" data-content="stopName"></p>
           </div>
           <div class="col-xs-3 col-md-3"><p href="#"></p>
           </div>
@@ -179,12 +130,13 @@
         </div>
       </script>
 
+
+
     </body>
     <footer id="main-footer">
       <p>
         Bachelorgruppe 15. All rights reserved. Copyright &copy; 2016 - forever.
       </p>
     </footer>
-   
   </body>
 </html>

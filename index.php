@@ -35,7 +35,7 @@
   <script type="text/javascript" src="js/jquery.loadTemplate-1.4.4.js"></script>
 
   <!-- Fetch data js file -->
-  <script type="text/javascript" src="js/fetch_data.js" ></script>
+  <script type="text/javascript" src="js/controller.js" ></script>
   <script type="text/javascript" src ="js/stop.js"> </script>
 
 
@@ -151,12 +151,12 @@
 
          <div class="container footer" id="footer">
               <div class="row">
-                <div class="col-xs-4 col-md-4" id="sanntid_active" height="100px"><a href="buddybus.html"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
+                <div class="col-xs-4 col-md-4" id="sanntid_active" height="100px"><a href=""><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
                 </a>
               </div>
-                <div class="col-xs-4 col-md-4" id="minReise"><a href="minreise.php"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
+                <div class="col-xs-4 col-md-4" id="minReise"><a href="bus.php?id=200"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
               </div>
-                <div class="col-xs-4 col-md-4" id="phWeb"><a href="buddybus.html"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
+                <div class="col-xs-4 col-md-4" id="phWeb"><a href="b"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
                 </a>
               </div>
               </div>

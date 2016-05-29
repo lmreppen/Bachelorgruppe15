@@ -30,7 +30,7 @@
    <script type="text/javascript" src="jquery.loadTemplate-1.4.4.js"></script>
 
    <!-- Main js file -->
-   <script type="text/javascript" src="js/fetch_data.js" ></script>
+   <script type="text/javascript" src="js/controller_VM.js" ></script>
    <script type="text/javascript" src="js/stop.js"></script>
 
 </head>
@@ -89,95 +89,19 @@
 
 <div class="container footer" id="footer">
               <div class="row">
-                <div class="col-xs-4 col-md-4" id="sanntid" height="100px"><a href="index.php?=16010404"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
+                <div class="col-xs-4 col-md-4" id="sanntid" height="100px"><a href="index.php?id=16010404"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
                 </a>
               </div>
-                <div class="col-xs-4 col-md-4" id="minReise_active"><a href="stop.html"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
+                <div class="col-xs-4 col-md-4" id="minReise_active"><a href=""><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
               </div>
-                <div class="col-xs-4 col-md-4" id="phWeb"><a href="buddybus.html"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
+                <div class="col-xs-4 col-md-4" id="phWeb"><a href=""><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
                 </a>
               </div>
               </div>
             </div>
 
-    <script type="text/javascript" src="javaBuddy.js"></script>
 
-    <script>
-      var c = document.getElementById("myCanvas");
-      var ctx = c.getContext("2d");
-      ctx.beginPath();
-      ctx.arc(42,45,42,0,2*Math.PI);
-      ctx.strokeStyle = "#1fb6ff";
-      ctx.lineWidth = 1;
-      ctx.stroke();
-      ctx.fillStyle = '#1fb6ff';
-      ctx.fill();
-
-      while (bus.length > 0) { 
-        var c3 = document.getElementById("myCanvas3");
-        var c3tx = c3.getContext("2d");
-        c3tx.beginPath();
-        c3tx.arc(55,40,30,0,2*Math.PI);
-        c3tx.strokeStyle = "#1fb6ff";
-        c3tx.lineWidth = 1;
-        c3tx.stroke();
-        c3tx.fillStyle = '#1fb6ff';
-        c3tx.fill();
-          }
-      </script>
-      <script>
-      var c2 = document.getElementById("myCanvas2");
-      var c2tx = c2.getContext("2d");
-      c2tx.beginPath();
-      c2tx.arc(40,38,30,0,2*Math.PI);
-      c2tx.strokeStyle = "#1fb6ff";
-      c2tx.lineWidth = 1;
-      c2tx.stroke();
-      c2tx.fillStyle = '#1fb6ff';
-      c2tx.fill();
-      </script>
-      <script>
-      var c3 = document.getElementById("myCanvas3");
-        var c3tx = c3.getContext("2d");
-        c3tx.beginPath();
-        c3tx.arc(40,38,30,0,2*Math.PI);
-        c3tx.strokeStyle = "#1fb6ff";
-        c3tx.lineWidth = 1;
-        c3tx.stroke();
-        c3tx.fillStyle = '#1fb6ff';
-        c3tx.fill();
-      </script>  
-      <script>
-      var c4 = document.getElementById("myCanvas4");
-        var c4tx = c4.getContext("2d");
-        c4tx.beginPath();
-        c4tx.arc(40,38,30,0,2*Math.PI);
-        c4tx.strokeStyle = "#1fb6ff";
-        c4tx.lineWidth = 1;
-        c4tx.stroke();
-        c4tx.fillStyle = '#1fb6ff';
-        c4tx.fill();
-      </script> 
-
-      <script>
-      var v = document.getElementById("strekV");
-      var vtx = v.getContext("2d");
-      vtx.moveTo(0,50);
-      vtx.lineTo(20,50);
-      vtx.strokeStyle = "#1fb6ff";
-      vtx.lineWidth = 10;
-      vtx.stroke();
-      </script> 
-      <script>
-      var h = document.getElementById("strekH");
-      var htx = h.getContext("2d");
-      htx.moveTo(0,50);
-      htx.lineTo(20,50);
-      htx.strokeStyle = "#1fb6ff";
-      htx.lineWidth = 10;
-      htx.stroke();
-
-    </script>
+  
 
     <!-- Template -->
 <script type="text/html" id="template">

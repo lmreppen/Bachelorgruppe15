@@ -94,23 +94,17 @@
       </div>
 
       <div class="container footer" id="footer">
-        <div class="row">
-          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-time lnr"></span>
-          </div>
-          <div class="col-xs-4 col-md-4"><span class="lnr lnr-bus"></span>
-          </div>
-          <div class="col-xs-4 col-md-4"><span class="glyphicon glyphicon-search lnr"></span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-4 col-md-4"><p href="#">Sanntid</p>
-          </div>
-          <div class="col-xs-4 col-md-4"><p href="#">Min reise</p>
-          </div>
-          <div class="col-xs-4 col-md-4"><p href="#">Noe annet</p>
-          </div>
-        </div>
-      </div>
+              <div class="row">
+                <div class="col-xs-4 col-md-4" id="sanntid" height="100px"><a href="index.php?id=16010404"><span class="glyphicon glyphicon-time lnr"></br><a id="sanntid">Sanntid</a></span></a>
+                </a>
+              </div>
+                <div class="col-xs-4 col-md-4" id="minReise_active"><a href=""><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
+              </div>
+                <div class="col-xs-4 col-md-4" id="phWeb"><a href="b"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
+                </a>
+              </div>
+              </div>
+            </div>
 
       <!-- Template -->
       <script type="text/html" id="template">

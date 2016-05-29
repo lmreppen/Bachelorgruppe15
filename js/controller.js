@@ -4,7 +4,7 @@ function fetchData() {
   console.log(id);
   $.ajax({
     type: 'POST',
-    url: 'test_realtime.php',
+    url: 'stopMonitoring.php',
     data: {time:time,holdeplass:holdeplass},
     cache: false,
     success: function(json) {
@@ -98,11 +98,6 @@ function getCurrentTime(){
 
 }
 
-
-function writeToDoc(){
-  var test = $(".lineRef").html("22");
-  console.log(buss1_lineRef.innerHTML);
-}
 
 
 

@@ -31,7 +31,7 @@
   <script type="text/javascript" src="js/jquery.loadTemplate-1.4.4.js"></script>
 
   <!-- Fetch data js file -->
-  <script type="text/javascript" src="js/fetch_VMdata.js" ></script>
+  <script type="text/javascript" src="js/controller_VM.js" ></script>
 
   <!-- Jquery url parser -->
   <script type="text/javascript" src="js/purl.js"></script>

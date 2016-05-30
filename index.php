@@ -104,42 +104,7 @@
           </div>
         </div>
 
-        <div class="container-fluid" id="timetable">
-            <button type="button" id="stoppKnapp1" class="btn btn-xs btn-default btn-danger" >STOPP</button>
-            <button onclick="notifyMe()" class="btn btn-xs btn-default btn-danger">Notify</button>
-
-          <script type="text/javascript">
-            function notifyMe() {
-            // Let's check if the browser supports notifications
-            if (!("Notification" in window)) {
-              alert("This browser does not support desktop notification");
-            }
-
-            // Let's check whether notification permissions have already been granted
-            else if (Notification.permission === "granted") {
-              // If it's okay let's create a notification
-              var notification = new Notification("Hi there!");
-            }
-
-            // Otherwise, we need to ask the user for permission
-            else if (Notification.permission !== 'denied') {
-              Notification.requestPermission(function (permission) {
-                // If the user accepts, let's create a notification
-                if (permission === "granted") {
-                  var notification = new Notification("Hi there!");
-                }
-              });
-            }
-
-          }
-
-          </script>
-            
-
-
-
-
-</script>
+   
 
 
           <div class="simple-template-container">
@@ -167,7 +132,7 @@
       
         <div class="row" id="bussrad">
           <div class="col-xs-2 col-md-1" id="stopButton">
-              <button type="button" id="stoppKnapp" class="btn btn-xs btn-default btn-danger" >STOPP</button>
+              
                   </div>
           <div class="col-xs-1 col-md-2"><h3 href="#" class="lineRef" data-content="lineRef"></h3>
           </div>

@@ -1,3 +1,7 @@
+//The bus stops the bus is going to stop at is temporarily put in this variable.
+//Every time the page reloads with new content (every 30 secs), it checks if the upcoming stop equals this one.
+var global_temp_storage;
+
 function fetchVehicleData() {
   var time = getCurrentTime(1);
   var id = document.getElementById("herErDu").textContent;
@@ -8,9 +12,6 @@ function fetchVehicleData() {
     cache: false,
     success: function(json) {
       console.log(json);
-      //console.log(json['StopMonitoringDelivery']['MonitoredStopVisit'][0]['MonitoredVehicleJourney']['DestinationName'])
-      //console.log(json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['LineRef'])
-      //var nextStop = json['VehicleMonitoringDelivery']['VehicleActivity']['MonitoredVehicleJourney']['MonitoredCall']['StopPointRef'];
       getVehicleJourney(json);
       }
     });
@@ -38,7 +39,7 @@ function getVehicleJourney(json){
 
 $(document).ready(function() {
     fetchVehicleData();
-   // setInterval(fetchData, 30000);
+    setInterval(fetchVehicleData, 30000);
   //writeToDoc();
 });
 
@@ -128,12 +129,22 @@ function getCurrentTime(option){
 }
 
 
-
+//The function registering button clicks, adding the selected stop to the global array.
+function stopBus(stopRef){
+  stopRef.className = "btn btn-xs btn-default btn-success"
+  var stopName = stopRef.id;
+  global_temp_storage = stopName;
+  alert("Stopping at " + stopName);
+}
 
 function generateFromTemplate(json, upcomingStop, busName){
   //Create an array containing all the bus information formatted correctly
   var busArray = [];
 
+  if (upcomingStop + ' (Trondheim)' == global_temp_storage){
+    connect();
+    alert("Bus is now stopping at " + upcomingStop);
+  }
   console.log(upcomingStop);
 
   //Init addStops as false
@@ -159,7 +170,7 @@ function generateFromTemplate(json, upcomingStop, busName){
       }
   }
 
-
+  console.log(busArray);
   //Finally, load the array into the template
   $(".simple-template-container").loadTemplate($("#template"), busArray);
 
@@ -189,11 +200,20 @@ function generateFromTemplate(json, upcomingStop, busName){
 
   //Get all the stop buttons that was generated and put them into an array.
   var stoppknapper = document.getElementsByClassName("btn btn-xs btn-default btn-danger");
+  console.log(stoppknapper.length);
+  for (var i = 0; i < stoppknapper.length; i++) { 
+    stoppknapper[i].id = busArray[i]['stopName'];
+    stoppknapper[i].addEventListener("click", function(event){
+      var target = event.target || event.srcElement;
+       stopBus(target);
+    }, false);
 
-  document.getElementById("herErDu").innerHTML = busName;
+  }  
 
-      
+  document.getElementById("herErDu").innerHTML = busName;  
 }
+
+
 
 const serviceUUID = '00001523-1212-efde-1523-785feabcd123';
 const ledCharacteristicUUID = '00001525-1212-efde-1523-785feabcd123';
@@ -203,10 +223,7 @@ var bleServer;
 var bleService;
 
 
-window.onload = function() {
-    document.querySelector('#stoppKnapp1').addEventListener('click', connect);
-    document.querySelector('#stoppKnapp').addEventListener('click', connect);
-}
+
 function connect() {
   if (!navigator.bluetooth) {
 

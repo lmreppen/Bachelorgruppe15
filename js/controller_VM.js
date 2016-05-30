@@ -2,6 +2,52 @@
 //Every time the page reloads with new content (every 30 secs), it checks if the upcoming stop equals this one.
 var global_temp_storage;
 
+const serviceUUID = '00001523-1212-efde-1523-785feabcd123';
+const ledCharacteristicUUID = '00001525-1212-efde-1523-785feabcd123';
+
+var bleDevice;
+var bleServer;
+var bleService;
+
+
+
+function connect() {
+  console.log("COnnect pressed");
+  if (!navigator.bluetooth) {
+
+      return;
+  }
+  navigator.bluetooth.requestDevice({filters: [{services: [serviceUUID]}]})
+  .then(device => {
+    bleDevice = device;
+    return device.connectGATT();
+  })
+  .then(server => {
+    bleServer = server;
+    return server.getPrimaryService(options);
+  })
+  .then(service => {
+
+    bleService = service;
+  }).catch(error => {
+
+  });
+}
+
+function toggleLED(){
+    let toggle;
+    if(toggleFlag === true){
+      toggle = new Uint8Array([0]);
+      toggleFlag = false;
+    }
+    else{
+      toggle = new Uint8Array([1]);
+      toggleFlag = true;
+    }
+    return ledChar.writeValue(toggle);
+}
+
+
 function fetchVehicleData() {
   var time = getCurrentTime(1);
   var id = document.getElementById("herErDu").textContent;
@@ -134,7 +180,6 @@ function stopBus(stopRef){
   stopRef.className = "btn btn-xs btn-default btn-success"
   var stopName = stopRef.id;
   global_temp_storage = stopName;
-  alert("Stopping at " + stopName);
 }
 
 function generateFromTemplate(json, upcomingStop, busName){
@@ -142,7 +187,7 @@ function generateFromTemplate(json, upcomingStop, busName){
   var busArray = [];
 
   if (upcomingStop + ' (Trondheim)' == global_temp_storage){
-    connect();
+    toggleLED();
     alert("Bus is now stopping at " + upcomingStop);
   }
   console.log(upcomingStop);
@@ -215,35 +260,5 @@ function generateFromTemplate(json, upcomingStop, busName){
 
 
 
-const serviceUUID = '00001523-1212-efde-1523-785feabcd123';
-const ledCharacteristicUUID = '00001525-1212-efde-1523-785feabcd123';
-
-var bleDevice;
-var bleServer;
-var bleService;
-
-
-
-function connect() {
-  if (!navigator.bluetooth) {
-
-      return;
-  }
-  navigator.bluetooth.requestDevice({filters: [{services: [serviceUUID]}]})
-  .then(device => {
-    bleDevice = device;
-    return device.connectGATT();
-  })
-  .then(server => {
-    bleServer = server;
-    return server.getPrimaryService(options);
-  })
-  .then(service => {
-
-    bleService = service;
-  }).catch(error => {
-
-  });
-}
 
 

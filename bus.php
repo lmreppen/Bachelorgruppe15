@@ -74,6 +74,11 @@
           </div>
         </div>
 
+         <div class="container-fluid" id="timetable">
+            <button type="button" id="stoppKnapp1" class="btn btn-xs btn-default btn-primary" onClick="connect()" >Connect to beacon</button>
+          </div>
+
+
         <div class="container" id="timetableHeader">
           <div class="row" id="infoTekst">
             <div class="col-xs-6">
@@ -100,7 +105,7 @@
               </div>
                 <div class="col-xs-4 col-md-4" id="minReise_active"><a href=""><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
               </div>
-                <div class="col-xs-4 col-md-4" id="phWeb"><a href=""><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
+                <div class="col-xs-4 col-md-4" id="phWeb"><a href="b"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
                 </a>
               </div>
               </div>

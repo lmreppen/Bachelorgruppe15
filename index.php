@@ -121,7 +121,7 @@
               </div>
                 <div class="col-xs-4 col-md-4" id="minReise"><a href="bus.php?id=200"><span class="lnr lnr-bus"></br><a>Min reise</a></span></a>
               </div>
-                <div class="col-xs-4 col-md-4" id="phWeb"><a href="b"><span><img src="physical_web_logo.png" height="33"></br><a href="#">Physical Web</a></span>
+                <div class="col-xs-4 col-md-4" id="phWeb"><a href="#"><span><img src="physical_web_logo.png" height="33"></br><a href="">Physical Web</a></span>
                 </a>
               </div>
               </div>

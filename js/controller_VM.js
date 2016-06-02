@@ -221,10 +221,11 @@ function generateFromTemplate(json, upcomingStop, busName){
     }
 
 
-    if (addStops == true){    
+    if (addStops == true){
+
       busArray.push(
       {
-        stopName: json[i]['holdeplass'],
+        stopName: json[i]['holdeplass'].slice(0,json[i]['holdeplass'].lastIndexOf("(Trondheim)")),
         timeEst: json[i]['tid']
       }
         );

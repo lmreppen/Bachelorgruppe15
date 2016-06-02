@@ -202,7 +202,7 @@ function generateFromTemplate(json, upcomingStop, busName){
   //Create an array containing all the bus information formatted correctly
   var busArray = [];
 
-  if (upcomingStop + ' (Trondheim)' == global_temp_storage){
+  if (upcomingStop + " (Trondheim)"== global_temp_storage){
     toggleLED();
     alert("Bus is now stopping at " + upcomingStop);
   }
@@ -225,7 +225,7 @@ function generateFromTemplate(json, upcomingStop, busName){
 
       busArray.push(
       {
-        stopName: json[i]['holdeplass'].slice(0,json[i]['holdeplass'].lastIndexOf("(Trondheim)")),
+        stopName: json[i]['holdeplass']),
         timeEst: json[i]['tid']
       }
         );

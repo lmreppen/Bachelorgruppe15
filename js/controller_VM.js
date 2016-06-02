@@ -35,13 +35,8 @@ function connect() {
     console.log('Got bleService');
     bleService = service;
   })
-  .then(() => bleService.getCharacteristic(buttonCharacteristicUUID))
-  .then( characteristic => {
-    console.log('Got button1characteristic');
-    button1char = characteristic;
-    return button1char.startNotifications();
-  })
   .then(() => {
+    console.log("Got ledCharacteristicUUID");
     return bleService.getCharacteristic(ledCharacteristicUUID);
   })
   .then( characteristic => {

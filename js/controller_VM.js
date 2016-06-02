@@ -106,7 +106,7 @@ function getVehicleJourney(json){
 
 $(document).ready(function() {
     fetchVehicleData();
-    setInterval(fetchVehicleData, 30000);
+    setInterval(fetchVehicleData, 15000);
   //writeToDoc();
 });
 
@@ -198,7 +198,7 @@ function getCurrentTime(option){
 
 //The function registering button clicks, adding the selected stop to the global array.
 function stopBus(stopRef){
-  stopRef.className = "btn btn-xs btn-default btn-success"
+  stopRef.className = "btn btn-xs btn-default btn-danger"
   var stopName = stopRef.id;
   global_temp_storage = stopName;
 }
@@ -265,7 +265,7 @@ function generateFromTemplate(json, upcomingStop, busName){
   }
 
   //Get all the stop buttons that was generated and put them into an array.
-  var stoppknapper = document.getElementsByClassName("btn btn-xs btn-default btn-danger");
+  var stoppknapper = document.getElementsByClassName("btn btn-xs btn-default btn-success");
   console.log(stoppknapper.length);
   for (var i = 0; i < stoppknapper.length; i++) { 
     stoppknapper[i].id = busArray[i]['stopName'];

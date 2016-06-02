@@ -42,10 +42,6 @@ function connect() {
     return button1char.startNotifications();
   })
   .then(() => {
-    console.log('Notifications enabled');
-    button1char.addEventListener('characteristicvaluechanged',handleNotifyButton1);
-  })
-  .then(() => {
     return bleService.getCharacteristic(ledCharacteristicUUID);
   })
   .then( characteristic => {

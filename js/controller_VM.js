@@ -4,15 +4,18 @@ var global_temp_storage;
 
 const serviceUUID = '00001523-1212-efde-1523-785feabcd123';
 const ledCharacteristicUUID = '00001525-1212-efde-1523-785feabcd123';
+const buttonCharacteristicUUID = '00001524-1212-efde-1523-785feabcd123';
 
 var bleDevice;
 var bleServer;
 var bleService;
-
-
+var button1char;
+var ledChar;
+var button1count = 0;
+var toggleFlag = false;
 
 function connect() {
-  console.log("COnnect pressed");
+  console.log("Connect pressed");
   if (!navigator.bluetooth) {
 
       return;
@@ -35,6 +38,7 @@ function connect() {
 }
 
 function toggleLED(){
+    console.log("Toggling LED");
     let toggle;
     if(toggleFlag === true){
       toggle = new Uint8Array([0]);

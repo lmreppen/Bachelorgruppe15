@@ -225,7 +225,7 @@ function generateFromTemplate(json, upcomingStop, busName){
 
       busArray.push(
       {
-        stopName: json[i]['holdeplass']),
+        stopName: json[i]['holdeplass'],
         timeEst: json[i]['tid']
       }
         );

@@ -34,6 +34,16 @@ function connect() {
     bleService = service;
   }).catch(error => {
 
+  })
+  .then(() => {
+    return bleService.getCharacteristic(ledCharacteristicUUID);
+  })
+  .then( characteristic => {
+    ledChar = characteristic;
+    console.log('Got ledChar');
+  })
+  .catch(error => {
+    console.log('> connect ' + error);
   });
 }
 

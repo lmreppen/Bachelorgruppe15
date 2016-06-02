@@ -28,11 +28,11 @@ function connect() {
   })
   .then(server => {
     bleServer = server;
-    log('Got bleServer');
+    console.log('Got bleServer');
     return server.getPrimaryService(serviceUUID);
   })
   .then(service => {
-    log('Got bleService');
+    console.log('Got bleService');
     bleService = service;
   })
   .then(() => bleService.getCharacteristic(buttonCharacteristicUUID))

@@ -15,11 +15,12 @@ var button1count = 0;
 var toggleFlag = false;
 
 function connect() {
-  console.log("Connect pressed");
   if (!navigator.bluetooth) {
-
+      log('Web Bluetooth API is not available.\n' +
+          'Please make sure the Web Bluetooth flag is enabled.');
       return;
   }
+  log('Requesting Bluetooth Device...');
   navigator.bluetooth.requestDevice({filters: [{services: [serviceUUID]}]})
   .then(device => {
     bleDevice = device;
@@ -27,13 +28,32 @@ function connect() {
   })
   .then(server => {
     bleServer = server;
-    return server.getPrimaryService(options);
+    log('Got bleServer');
+    return server.getPrimaryService(serviceUUID);
   })
   .then(service => {
-
+    log('Got bleService');
     bleService = service;
-  }).catch(error => {
-
+  })
+  .then(() => bleService.getCharacteristic(buttonCharacteristicUUID))
+  .then( characteristic => {
+    log('Got button1characteristic');
+    button1char = characteristic;
+    return button1char.startNotifications();
+  })
+  .then(() => {
+    log('Notifications enabled');
+    button1char.addEventListener('characteristicvaluechanged',handleNotifyButton1);
+  })
+  .then(() => {
+    return bleService.getCharacteristic(ledCharacteristicUUID);
+  })
+  .then( characteristic => {
+    ledChar = characteristic;
+    log('Got ledChar');
+  })
+  .catch(error => {
+    log('> connect ' + error);
   });
 }
 
